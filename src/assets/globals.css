@@ -1,2 +1,12 @@
 @import "tailwindcss";
 
+.heroHome{
+  background-image: url('/img//Rectangle88.png');
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}

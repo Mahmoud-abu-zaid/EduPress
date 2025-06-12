@@ -1,3 +1,14 @@
+import Header from "@/components/layouts/Headers";
+import HeroHome from "@/components/pages/HeroHome";
+import ToggleLanguage from "@/components/utils/ToggleLanguage";
+
 export default function Home() {
-  return <></>;
+  return (
+    <>
+      <ToggleLanguage>
+        <Header />
+        <HeroHome />
+      </ToggleLanguage>
+    </>
+  );
 }
