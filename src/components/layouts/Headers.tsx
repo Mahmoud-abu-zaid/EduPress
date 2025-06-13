@@ -40,7 +40,7 @@ export default function Header() {
                   {Array.isArray(li.nestedNav) && (
                     <ul className="absolute top-[25px] hidden group-hover:block text-center bg-white shadow-md">
                       {li.nestedNav.map((nested: { path: string; label: string }) => (
-                        <li key={nested.path} className="py-1 w-[110px]">
+                        <li key={nested.path} className="py-1 w-[120px]">
                           <Link href={nested.path} className="text-black block">
                             {nested.label}
                           </Link>
