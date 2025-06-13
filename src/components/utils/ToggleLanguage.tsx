@@ -3,7 +3,7 @@
 import "../../i18ntranslation/i18n";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Banner from "../ui/Banneer";
+import Banner from "../ui/Banner";
 
 export default function ToggleLanguage({ children }: { children: React.ReactNode }) {
   const { i18n } = useTranslation();

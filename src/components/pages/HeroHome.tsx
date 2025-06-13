@@ -1,8 +1,9 @@
 "use client";
 import i18n from "../../i18ntranslation/i18n";
 import Image from "next/image";
-import Link from "next/link";
+
 import { useTranslation } from "react-i18next";
+import BtnLink from "../ui/BtnLink";
 export default function HeroHome() {
   const { t } = useTranslation();
 
@@ -21,8 +22,8 @@ export default function HeroHome() {
               We denounce with righteous indignation and dislike men who are <br />
               so beguiled and demoralized that cannot trouble.
             </p>
-            <div className="mt-4">
-              <Link href="/">Posts comment</Link>
+            <div className="mt-6">
+              <BtnLink path="/" title="Posts comment"/>
             </div>
           </div>
           <div className="h-[80vh] lg:block hidden">
