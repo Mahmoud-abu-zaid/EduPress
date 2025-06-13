@@ -5,6 +5,20 @@ import { IoIosArrowDown } from "react-icons/io";
 import { IoSearchCircleOutline } from "react-icons/io5";
 
 export default function Header() {
+  const nestedNav = [
+    { path: "/contact", label: "Contact" },
+    { path: "/about", label: "About Us" },
+    { path: "/faq", label: "FAQ" },
+  ];
+  const nav = [
+    { path: "/", label: "Home" },
+    { path: "/courses", label: "Courses" },
+    { path: "/blog", label: "Blog" },
+    { path: "/Page", label: "Page", icon: <IoIosArrowDown />, nestedNav: nestedNav },
+    { path: "/learnPress", label: "LearnPress Add-On" },
+    { path: "/premium", label: "Premium Theme" },
+  ];
+
   return (
     <>
       <div>
@@ -15,63 +29,35 @@ export default function Header() {
           </Link>
 
           <div>
-            <ul className="hidden lg:flex space-x-4">
-              <li>
-                <Link href="/" className="text-black">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/courses" className="text-black">
-                  Courses
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-black">
-                  Blog
-                </Link>
-              </li>
-              <li className="relative group ">
-                <Link href="/Page" className="text-black flex items-center gap-1">
-                  Page
-                  <IoIosArrowDown />
-                </Link>
-                <ul className="absolute hidden top-[18px]  group-hover:block bg-white shadow-lg mt-2 p-4">
-                  <li>
-                    <Link href="/contact" className="text-black">
-                      Contact
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/about" className="text-black">
-                      About Us
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/faq" className="text-black">
-                      FAQ
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <Link href="/learnPress" className="text-black">
-                  LearnPress Add-On
-                </Link>
-              </li>
-              <li>
-                <Link href="/premium" className="text-black">
-                  Premium Theme
-                </Link>
-              </li>
-            </ul>
+            <div className="flex items-center">
+              {nav.map((li) => (
+                <li key={li.path} className="hidden lg:flex flex-col group relative m-2">
+                  <Link href={li.path} className="text-black flex items-center">
+                    {li.label}
+                    {li?.icon}
+                  </Link>
+
+                  {Array.isArray(li.nestedNav) && (
+                    <ul className="absolute top-[25px] hidden group-hover:block text-center bg-white shadow-md">
+                      {li.nestedNav.map((nested: { path: string; label: string }) => (
+                        <li key={nested.path} className="py-1 w-[110px]">
+                          <Link href={nested.path} className="text-black block">
+                            {nested.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </div>
           </div>
           <div className="lg:hidden text-[25px] text-black">
             <CiMenuFries />
           </div>
           <div className="flex items-center gap-2">
             <Link href="/login" className="">
-               Login
+              Login
             </Link>
             <span>/</span>
             <Link href="/register" className="">
