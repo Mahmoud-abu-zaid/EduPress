@@ -1,13 +1,13 @@
-import { IoMdColorPalette } from "react-icons/io";
 import BtnLinkAll from "../ui/BtnLinkAll";
-import TitleDescription from "../ui/TitleDescription";
 import { LuFileCode2 } from "react-icons/lu";
-import { RiUserCommunityFill } from "react-icons/ri";
-import { TfiVideoClapper } from "react-icons/tfi";
-import { TbPhoto, TbWriting } from "react-icons/tb";
 import { FaLandmarkFlag } from "react-icons/fa6";
-import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
+import { TfiVideoClapper } from "react-icons/tfi";
+import { IoMdColorPalette } from "react-icons/io";
 import { MdOutlineScience } from "react-icons/md";
+import { TbPhoto, TbWriting } from "react-icons/tb";
+import { RiUserCommunityFill } from "react-icons/ri";
+import TitleDescription from "../ui/TitleDescription";
+import { LiaFileInvoiceDollarSolid } from "react-icons/lia";
 
 export default function Categories() {
   const categories = [
@@ -31,7 +31,7 @@ export default function Categories() {
       <div className="flex justify-center">
         <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 justify-center items-center gap-7 pb-8 w-fit">
           {categories.map((categorie, index) => (
-            <div key={index} className="flex flex-col items-center justify-center w-[234px] h-[234px] shadow rounded-2xl hover:shadow-lg">
+            <div key={index} className="flex flex-col items-center justify-center w-[234px] h-[234px] shadow rounded-2xl hover:shadow-lg cursor-pointer">
               <i className="text-3xl text-amber-500 ">{categorie.icons}</i>
               <p className="text-[20px] font-semibold py-3">{categorie.title}</p>
               <p className="font-extralight">{categorie.coruses}</p>
