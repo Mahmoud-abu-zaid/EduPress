@@ -17,7 +17,11 @@ interface DataCorurses {
 }
 
 export default async function FeaturedComponents() {
-  const response = await fetch("http://localhost:3000/json/featured.json");
+  const api = process.env.FEATURED_COURSES;
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const response = await fetch(`${baseUrl}${api}`, {
+    cache: "no-store",
+  });
   const data: DataCorurses[] = await response.json();
 
   return (
