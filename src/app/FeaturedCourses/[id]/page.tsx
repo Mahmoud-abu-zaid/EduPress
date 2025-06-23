@@ -17,22 +17,15 @@ interface DataCorurses {
 }
 
 export default async function FeaturedComponents() {
-  const api = process.env.FEATURED_COURSES;
- 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
-
-  if (!api) {
-    throw new Error("FEATURED_COURSES not defined in .env");
-  }
-
-  const response = await fetch(`${baseUrl}${api}`, {
+  const response = await fetch("https://edupress-neon.vercel.app/json/featured.json", {
     cache: "no-store",
   });
 
-  if (!response.ok) {
-    throw new Error(`Fetch failed with status ${response.status}`);
-  }
   const data: DataCorurses[] = await response.json();
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch featured courses");
+  }
 
   return (
     <div>
