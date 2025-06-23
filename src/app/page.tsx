@@ -1,16 +1,16 @@
-import Footer from "@/components/layouts/Footer";
-import Header from "@/components/layouts/Headers";
-import ToggleLanguage from "@/components/utils/ToggleLanguage";
-import HomePage from "./Homepage/page";
+import HeroHome from "@/components/pages/HeroHome";
+
+import Categories from "@/components/pages/Categories";
+import FeaturedComponents from "./FeaturedCourses/[id]/page";
 
 export default function Home() {
   return (
     <>
-      <ToggleLanguage>
-        <Header />
-        <HomePage />
-        <Footer />
-      </ToggleLanguage>
+      <HeroHome />
+      <div>
+        <Categories />
+        <FeaturedComponents />
+      </div>
     </>
   );
 }

@@ -21,7 +21,7 @@ export default function ToggleLanguage({ children }: { children: React.ReactNode
       i18n.changeLanguage(storedLocale);
       document.documentElement.dir = storedDirection;
     }
-  }, []);
+  }, [i18n]);
 
   const changeLanguage = (newLanguage: string) => {
     const newDirection = newLanguage === "ar" ? "rtl" : "ltr";

@@ -1,10 +1,16 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
+
 import { CiMenuFries } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoSearchCircleOutline } from "react-icons/io5";
 
 export default function Header() {
+  const pathname = usePathname();
+
   const nestedNav = [
     { path: "/contact", label: "Contact" },
     { path: "/about", label: "About Us" },
@@ -12,11 +18,11 @@ export default function Header() {
   ];
   const nav = [
     { path: "/", label: "Home" },
-    { path: "/courses", label: "Courses" },
-    { path: "/blog", label: "Blog" },
-    { path: "/Page", label: "Page", icon: <IoIosArrowDown />, nestedNav: nestedNav },
-    { path: "/learnPress", label: "LearnPress Add-On" },
-    { path: "/premium", label: "Premium Theme" },
+    { path: "/Courses", label: "Courses" },
+    { path: "/Blog", label: "Blog" },
+    { path: "", label: "Page", icon: <IoIosArrowDown />, nestedNav: nestedNav },
+    { path: "/LearnPress", label: "LearnPress Add-On" },
+    { path: "/Premium", label: "Premium Theme" },
   ];
 
   return (
@@ -31,10 +37,12 @@ export default function Header() {
           <div>
             <div className="flex items-center">
               {nav.map((li) => (
-                <li key={li.path} className="hidden lg:flex flex-col group relative m-2">
-                  <Link href={li.path} className="text-black flex items-center">
-                    {li.label}
-                    {li?.icon}
+                <li key={li.label} className={`hidden lg:flex flex-col group relative m-2`}>
+                  <Link href={li.path} className={clsx(pathname === li.path && `text-amber-500 font-semibold`)}>
+                    <div className="flex items-center">
+                      {li.label}
+                      {li?.icon}
+                    </div>
                   </Link>
 
                   {Array.isArray(li.nestedNav) && (

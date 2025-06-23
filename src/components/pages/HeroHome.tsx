@@ -1,13 +1,19 @@
 "use client";
-import i18n from "../../i18ntranslation/i18n";
-import Image from "next/image";
 
+import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import BtnLink from "../ui/BtnLink";
+import { useEffect, useState } from "react";
 export default function HeroHome() {
   const { t } = useTranslation();
 
-  const isLTR = i18n.dir() === "ltr";
+  const [isRTL, setIsRTL] = useState(false);
+
+  useEffect(() => {
+    const dir = localStorage.getItem("direction") || "ltr";
+    setIsRTL(dir === "ltr");
+  }, []);
+
   return (
     <>
       <div className="heroHome ">
@@ -23,11 +29,11 @@ export default function HeroHome() {
               so beguiled and demoralized that cannot trouble.
             </p>
             <div className="mt-6">
-              <BtnLink path="/" title="Posts comment"/>
+              <BtnLink path="/" title="Posts comment" />
             </div>
           </div>
           <div className="h-[80vh] lg:block hidden">
-            <Image className={`h-full ${isLTR ? "" : "scale-x-[-1]"}`} src="/img/heroHome.png" alt="Hero Home Image" width={500} height={300} />
+            <Image className={`h-full  duration-500 ${isRTL ? "" : "scale-x-[-1]"}`} src="/img/heroHome.png" alt="Hero Home Image" width={500} height={300} />
           </div>
         </div>
       </div>
