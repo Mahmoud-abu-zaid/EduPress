@@ -43,7 +43,7 @@ export default async function FeaturedComponents() {
                 <div className="relative">
                   <Image src={course.img} alt={course.title} className="w-full" width={400} height={250} />
                   <div className="text-xs absolute top-0 left-3 bg-black px-4 py-2 text-white mt-3 mr-3 transition duration-500 ease-in-out rounded-lg">{course.Photography}</div>
-                  <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-20 rounded-t-[16px]"></div>
+                  <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-20 rounded-t-[20px]"></div>
                 </div>
               </Link>
               <div className="px-6 py-4 mb-auto">
