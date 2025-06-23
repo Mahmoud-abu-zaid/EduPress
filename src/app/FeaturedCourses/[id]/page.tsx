@@ -54,10 +54,10 @@ export default async function FeaturedComponents() {
                 </Link>
                 <div className="flex gap-3 flex-wrap">
                   <p className="ml-1 flex items-center gap-2 text-gray-400">
-                    <IoIosTime className="text-amber-500" /> {course.time} hours
+                    <IoIosTime className="text-amber-500" /> {course.time} Week
                   </p>
                   <p className="ml-1 flex items-center gap-2 text-gray-400">
-                    <RiGraduationCapFill className="text-amber-500" /> {course.students} students
+                    <RiGraduationCapFill className="text-amber-500" /> {course.students} Students
                   </p>
                 </div>
               </div>
