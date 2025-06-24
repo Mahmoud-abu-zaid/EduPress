@@ -21,7 +21,7 @@ export default function Header() {
   ];
   const nav = [
     { path: "/", label: "Home" },
-    { path: "/Courses", label: "Courses" },
+    { path: "/AllCourses", label: "Courses" },
     { path: "/Blog", label: "Blog" },
     { path: "", label: "Page", icon: <IoIosArrowDown />, nestedNav },
     { path: "/LearnPress", label: "LearnPress Add-On" },

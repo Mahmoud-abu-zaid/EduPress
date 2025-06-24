@@ -1,7 +1,9 @@
 import HeroHome from "@/components/pages/HeroHome";
 
 import Categories from "@/components/pages/Categories";
-import FeaturedComponents from "./FeaturedCourses/[id]/page";
+
+import BannerExplorerCourse from "@/components/ui/BannerExplorerCourse";
+import FeaturedCoursesAll from "./FeaturedCoursesAll/page";
 
 export default function Home() {
   return (
@@ -9,7 +11,8 @@ export default function Home() {
       <HeroHome />
       <div>
         <Categories />
-        <FeaturedComponents />
+        <FeaturedCoursesAll />
+        <BannerExplorerCourse />
       </div>
     </>
   );

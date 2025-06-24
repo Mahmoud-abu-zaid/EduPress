@@ -29,7 +29,7 @@ export default function Categories() {
         <BtnLinkAll path="/" title="All categories" />
       </div>
       <div className="flex justify-center">
-        <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 justify-center items-center gap-7 pb-8 w-fit">
+        <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 justify-center items-center gap-7 pb-8 w-fit">
           {categories.map((categorie, index) => (
             <div key={index} className="flex flex-col items-center justify-center w-[234px] h-[234px] shadow rounded-2xl hover:shadow-lg cursor-pointer">
               <i className="text-3xl text-amber-500 ">{categorie.icons}</i>
