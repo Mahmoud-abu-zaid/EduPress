@@ -1,22 +1,22 @@
-import BtnLinkAll from "@/components/ui/BtnLinkAll";
-import TitleDescription from "@/components/ui/TitleDescription";
-import { DataCorurses } from "@/types/typeCourses";
-import Image from "next/image";
 import Link from "next/link";
-import { IoIosTime } from "react-icons/io";
+import Image from "next/image";
 import { MdQuiz } from "react-icons/md";
+import { IoIosTime } from "react-icons/io";
+import { DataCorurses } from "@/types/typeCourses";
+import BtnLinkAll from "@/components/ui/BtnLinkAll";
 import { RiGraduationCapFill } from "react-icons/ri";
+import TitleDescription from "@/components/ui/TitleDescription";
 
 export default async function FeaturedCoursesAll() {
   const response = await fetch("https://edupress-neon.vercel.app/json/featured.json", {
     cache: "no-store",
   });
 
-  const data: DataCorurses[] = await response.json();
-
   if (!response.ok) {
     throw new Error("Failed to fetch featured courses");
   }
+
+  const data: DataCorurses[] = await response.json();
 
   return (
     <div>

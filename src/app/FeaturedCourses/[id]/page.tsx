@@ -1,10 +1,10 @@
-import { notFound } from "next/navigation";
-import Image from "next/image";
-import { DataCorurses } from "@/types/typeCourses";
 import Link from "next/link";
-import { IoIosArrowForward, IoIosTime } from "react-icons/io";
-import { RiGraduationCapFill } from "react-icons/ri";
+import Image from "next/image";
+import { notFound } from "next/navigation";
 import BtnLink from "@/components/ui/BtnLink";
+import { DataCorurses } from "@/types/typeCourses";
+import { RiGraduationCapFill } from "react-icons/ri";
+import { IoIosArrowForward, IoIosTime } from "react-icons/io";
 // import { ImStatsBars } from "react-icons/im";
 // import { MdFileCopy, MdQuiz } from "react-icons/md";
 
@@ -21,7 +21,6 @@ export default async function CourseDetails({ params }: { params: { id: string }
   const course = await getCourse(params.id);
 
   if (!course) return notFound();
-
   return (
     <div className="">
       <div className="flex items-center gap-1 bg-gray-100 py-2 px-4 text-gray-500">
@@ -32,7 +31,7 @@ export default async function CourseDetails({ params }: { params: { id: string }
         <Link href={`/FeaturedCourses/${course.id}`}>{course.title}</Link>
       </div>
 
-      <div className="bg-black h-[220px] flex items-center justify-around ">
+      <div className="bg-black h-[220px] flex items-center justify-around flex-wrap md:flex-nowrap px-3">
         <div className="flex flex-col gap-2 py-9">
           <div className="flex items-center gap-4">
             <p className="py-2 px-3 bg-gray-600 text-white w-fit rounded-lg">{course.Photography}</p>
@@ -67,9 +66,9 @@ export default async function CourseDetails({ params }: { params: { id: string }
           </div>
         </div>
 
-        <div className="pt-27 z-10">
-          <div className="bg-white rounded-t-3xl rounded-b-2xl shadow">
-            <Image src={course.img} alt={course.title} className=" w-[290px] h-auto rounded " width={800} height={300} />
+        <div className="md:pt-27 z-10">
+          <div className="bg-white rounded-t-3xl rounded-b-2xl shadow ">
+            <Image src={course.img} alt={course.title} className=" md:w-[290px] h-auto rounded " width={800} height={300} />
             <div className="flex justify-center items-center gap-4 py-7">
               <div className="flex items-center gap-2">
                 <p className="text-gray-500 line-through">{course.priceBefore}</p>
@@ -77,7 +76,7 @@ export default async function CourseDetails({ params }: { params: { id: string }
                 <p className="text-green-600">{course.priceFree}</p>
               </div>
               <div>
-                <BtnLink title="Start Now" path=""/>
+                <BtnLink title="Start Now" path="" />
               </div>
             </div>
           </div>
