@@ -30,7 +30,7 @@ export default async function CourseDetails({ params }: { params: Promise<{ id: 
         <IoIosArrowForward />
         <Link href="/AllCourses">Courses</Link>
         <IoIosArrowForward />
-        <Link href={`/FeaturedCourses/${course.id}`}>{course.title}</Link>
+        <Link href={`/CourseDetails/${course.id}`}>{course.title}</Link>
       </div>
 
       <div className="bg-black h-[220px] flex items-center justify-around flex-wrap lg:flex-nowrap px-3">

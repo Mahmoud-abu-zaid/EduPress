@@ -28,7 +28,7 @@ export default async function FeaturedCoursesAll() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
           {data.map((course) => (
             <div key={course.id} className="rounded shadow-lg flex flex-col">
-              <Link href={`/FeaturedCourses/${course.id}`}>
+              <Link href={`/CourseDetails/${course.id}`}>
                 <div className="relative">
                   <Image src={course.img} alt={course.title} className="w-full" width={400} height={250} />
                   <div className="text-xs absolute top-0 left-3 bg-black px-4 py-2 text-white mt-3 mr-3 transition duration-500 ease-in-out rounded-lg">{course.Photography}</div>
@@ -37,7 +37,7 @@ export default async function FeaturedCoursesAll() {
               </Link>
               <div className="px-6 py-4 mb-auto">
                 <p className="text-gray-500 text-sm">By {course.by}</p>
-                <Link href={`/FeaturedCourses/${course.id}`} className="font-medium text-lg hover:text-amber-500 transition duration-300 ease-in-out inline-block mb-2">
+                <Link href={`/CourseDetails/${course.id}`} className="font-medium text-lg hover:text-amber-500 transition duration-300 ease-in-out inline-block mb-2">
                   {course.title}
                 </Link>
                 <div className="flex gap-3 flex-wrap">
@@ -65,7 +65,7 @@ export default async function FeaturedCoursesAll() {
                   </div>
                 </div>
                 <div>
-                  <Link href={`/FeaturedCourses/${course.id}`} className="text-sm">
+                  <Link href={`/CourseDetails/${course.id}`} className="text-sm">
                     View More
                   </Link>
                 </div>
