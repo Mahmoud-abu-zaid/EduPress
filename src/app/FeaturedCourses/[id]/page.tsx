@@ -43,7 +43,7 @@ export default async function CourseDetails({ params }: { params: Promise<{ id: 
           </div>
 
           <div>
-            <h1 className="text-3xl text-white">{course.title}</h1>
+            <h1 className="text-2xl sm:text-3xl text-white">{course.title}</h1>
           </div>
 
           <div className="flex items-center gap-4">
@@ -68,9 +68,9 @@ export default async function CourseDetails({ params }: { params: Promise<{ id: 
           </div>
         </div>
 
-        <div className="lg:pt-27 w-screen lg:w-fit">
-          <div className="bg-white rounded-t-3xl rounded-b-2xl shadow  ">
-            <Image src={course.img} alt={course.title} className=" lg:w-[290px] h-auto rounded w-[100%]" width={800} height={300} />
+        <div className="lg:pt-27  mt-[-20] md:mt-0 lg:w-fit">
+          <div className="bg-white rounded-t-3xl rounded-b-2xl shadow">
+            <Image src={course.img} alt={course.title} className=" lg:w-[290px]  h-auto rounded w-[100%]" width={800} height={300} />
             <div className="flex justify-center items-center gap-4 py-7">
               <div className="flex items-center gap-2">
                 <p className="text-gray-500 line-through">{course.priceBefore}</p>
@@ -84,7 +84,7 @@ export default async function CourseDetails({ params }: { params: Promise<{ id: 
           </div>
         </div>
       </div>
-      <div>
+      <div className="sm:pt-75 pt-70 lg:pt-0">
         <CourseTabs />
       </div>
     </div>

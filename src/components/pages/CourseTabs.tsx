@@ -9,10 +9,10 @@ export default function CourseTabs() {
   const [activeTab, setActiveTab] = useState("Overview");
 
   return (
-    <div>
+    <div className="">
       <div className="flex justify-around items-center w-[100%] px-2">
         <div className="p-3 bg-gray-100 lg:w-[55%] rounded-xl my-4 ">
-          <ul className="flex gap-2 mb-4 w-full justify-between rounded-xl">
+          <ul className="flex gap-2 mb-4 sm:w-full justify-between md:flex-nowrap flex-wrap rounded-xl">
             {tabs.map((tab) => (
               <li key={tab} onClick={() => setActiveTab(tab)} className={`cursor-pointer py-2 px-5 ${activeTab === tab ? "bg-gray-200 text-amber-500 font-semibold rounded-xl" : "text-black"}`}>
                 {tab}
@@ -56,7 +56,7 @@ export default function CourseTabs() {
             </div>
           )}
         </div>
-        <div className="lg:block hidden" ></div>
+        <div className="lg:block hidden"></div>
       </div>
     </div>
   );

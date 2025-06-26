@@ -9,7 +9,7 @@ export default function ActiveCurriculum() {
     <>
       <div className="bg-white py-3 rounded px-2 mt-3">
         <button onClick={() => setActiveCurriculum((prev) => !prev)} className={`w-[100%] transition ${activeCurriculum == true ? " text-amber-500" : ""}`}>
-          <div className="flex justify-between w-full px-1">
+          <div className="flex justify-between flex-wrap w-full px-1">
             <div className="flex items-center gap-3">
               <p>{activeCurriculum == true ? <IoIosArrowUp /> : <IoIosArrowDown />}</p>
               <p>Lessons with video content</p>
