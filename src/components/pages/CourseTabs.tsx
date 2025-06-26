@@ -2,6 +2,10 @@
 
 import { useState } from "react";
 import ActiveCurriculum from "../ui/ActiveCurriculum";
+import Image from "next/image";
+import { IoIosTime } from "react-icons/io";
+import { MdFileCopy } from "react-icons/md";
+import { FaFacebookF, FaInstagram, FaPinterestP, FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 const tabs = ["Overview", "Curriculum", "Instructor", "FAQs", "Reviews"];
 
@@ -52,6 +56,55 @@ export default function CourseTabs() {
                 <ActiveCurriculum />
                 <ActiveCurriculum />
                 <ActiveCurriculum />
+              </div>
+            </div>
+          )}
+          {activeTab === "Instructor" && (
+            <div>
+              <div className="flex gap-3">
+                <div>
+                  <Image className="w-[140px] pb-2" src="/img/Frame 3871.png" alt="" width={200} height={22} />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <h3 className="font-medium text-lg">ThimPress</h3>
+                  <p className="text-sm">
+                    LearnPress is a comprehensive WordPress LMS Plugin for WordPress. This is <br />
+                    one of the best WordPress LMS Plugins which can be used to easily create & <br />
+                    sell courses online.
+                  </p>
+                  <p className=" flex items-center gap-2 text-gray-400">
+                    <IoIosTime className="text-amber-500" />
+                    20 Week
+                  </p>
+                  <p className=" flex items-center gap-2 text-gray-400">
+                    <MdFileCopy className="text-amber-500" />
+                    156 Lessons
+                  </p>
+                </div>
+              </div>
+              <div>
+                <p className="text-sm py-2">
+                  LearnPress is a comprehensive WordPress LMS Plugin for WordPress. This is one of the best WordPress <br />
+                  LMS Plugins which can be used to easily create & sell courses online.
+                </p>
+                <div className="flex items-center gap-3">
+                  <p>Follow:</p>
+                  <a href="#">
+                    <FaFacebookF className="hover:text-amber-500 transition out-in" />
+                  </a>
+                  <a href="#">
+                    <FaPinterestP className="hover:text-amber-500 transition out-in" />
+                  </a>
+                  <a href="#">
+                    <FaXTwitter className="hover:text-amber-500 transition out-in" />
+                  </a>
+                  <a href="#">
+                    <FaInstagram className="hover:text-amber-500 transition out-in" />
+                  </a>
+                  <a href="#">
+                    <FaYoutube className="hover:text-amber-500 transition out-in" />
+                  </a>
+                </div>
               </div>
             </div>
           )}
