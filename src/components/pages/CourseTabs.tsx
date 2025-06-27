@@ -5,7 +5,10 @@ import ActiveCurriculum from "../ui/ActiveCurriculum";
 import Image from "next/image";
 import { IoIosTime } from "react-icons/io";
 import { MdFileCopy } from "react-icons/md";
-import { FaFacebookF, FaInstagram, FaPinterestP, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaPinterestP, FaStar, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import FAQs from "../ui/FAQs";
+import { CiStar } from "react-icons/ci";
+import Rating from "../ui/Rating";
 
 const tabs = ["Overview", "Curriculum", "Instructor", "FAQs", "Reviews"];
 
@@ -15,7 +18,7 @@ export default function CourseTabs() {
   return (
     <div className="">
       <div className="flex justify-around items-center w-[100%] px-2">
-        <div className="p-3 bg-gray-100 lg:w-[55%] rounded-xl my-4 ">
+        <div className="p-3 bg-gray-100 lg:w-[55%] w-full rounded-xl my-4 ">
           <ul className="flex gap-2 mb-4 sm:w-full justify-between md:flex-nowrap flex-wrap rounded-xl">
             {tabs.map((tab) => (
               <li key={tab} onClick={() => setActiveTab(tab)} className={`cursor-pointer py-2 px-5 ${activeTab === tab ? "bg-gray-200 text-amber-500 font-semibold rounded-xl" : "text-black"}`}>
@@ -105,6 +108,39 @@ export default function CourseTabs() {
                     <FaYoutube className="hover:text-amber-500 transition out-in" />
                   </a>
                 </div>
+              </div>
+            </div>
+          )}
+          {activeTab === "FAQs" && (
+            <div className="flex flex-col gap-3">
+              <FAQs />
+              <FAQs />
+              <FAQs />
+              <FAQs />
+            </div>
+          )}
+          {activeTab === "Reviews" && (
+            <div>
+              <h3>comments</h3>
+              <div className="flex items-center gap-2 pt-2">
+                <div>
+                  <p className="text-3xl">4.0</p>
+                </div>
+                <div>
+                  <div className="flex items-center text-amber-400">
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <CiStar className="text-xl" />
+                  </div>
+                  <div>
+                    <p className="text-gray-700">based on 146,951 ratings</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <Rating />
               </div>
             </div>
           )}
