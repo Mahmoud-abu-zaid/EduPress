@@ -121,7 +121,7 @@ export default function CourseTabs() {
           )}
           {activeTab === "Reviews" && (
             <div>
-              <h3>comments</h3>
+              <h3 className="text-2xl">Comments</h3>
               <div className="flex items-center gap-2 pt-2">
                 <div>
                   <p className="text-3xl">4.0</p>
@@ -145,7 +145,30 @@ export default function CourseTabs() {
             </div>
           )}
         </div>
+
         <div className="lg:block hidden"></div>
+      </div>
+
+      <div className="flex w-[85%] justify-around px-2 pb-4">
+        <div className="lg:w-[51%] w-full px-3">
+          <h3 className="text-2xl">Leave a comment</h3>
+          <p>Your email address will not be published. Required fields are marked *</p>
+          <form className=" flex flex-col gap-2">
+            <div className="flex gap-2 mt-2">
+              <input type="text" placeholder="Name*" className=" border-[1px] border-gray-400 px-1 py-1 rounded-md w-full" />
+              <input type="email" placeholder="Email*" className=" border-[1px] border-gray-400 px-1 py-1 rounded-md w-full" />
+            </div>
+            <div>
+              <textarea placeholder="Comment" className=" border-[1px] border-gray-400 px-1 py-1 my-2 rounded-md w-full"></textarea>
+              <div className="flex items-center gap-1">
+                <input type="checkbox" />
+                <p>Save my name, email in this brower for the next time I comment</p>
+              </div>
+              <button className="py-2 px-3 bg-amber-500 text-white mt-3 rounded-3xl cursor-pointer">Posts comment</button>
+            </div>
+          </form>
+        </div>
+        <div></div>
       </div>
     </div>
   );
