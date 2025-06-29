@@ -153,7 +153,7 @@ export default function CourseTabs() {
         <div className="lg:w-[51%] w-full px-3">
           <h3 className="text-2xl">Leave a comment</h3>
           <p>Your email address will not be published. Required fields are marked *</p>
-          <form className=" flex flex-col gap-2">
+          <form className="flex flex-col gap-2">
             <div className="flex gap-2 mt-2">
               <input type="text" placeholder="Name*" className=" border-[1px] border-gray-400 px-1 py-1 rounded-md w-full" />
               <input type="email" placeholder="Email*" className=" border-[1px] border-gray-400 px-1 py-1 rounded-md w-full" />
