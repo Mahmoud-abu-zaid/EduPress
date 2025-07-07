@@ -14,6 +14,7 @@ import ActiveCurriculum from "../../../components/ui/ActiveCurriculum";
 import { FaFacebookF, FaInstagram, FaPinterestP, FaStar, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import { BsReply } from "react-icons/bs";
 import { TiDelete } from "react-icons/ti";
+import { toast } from "react-toastify";
 
 const tabs = ["Overview", "Curriculum", "Instructor", "FAQs", "Reviews"];
 
@@ -46,12 +47,14 @@ export default function CourseTabs() {
     setSubmitCommit(newCommit);
     localStorage.setItem("commitMessage", JSON.stringify(newCommit));
     reset();
+    toast.success("Add comment successfully")
   }
 
   function handleDelete(indexToDelete: number) {
     const updatedCommit = submitCommit.filter((_, index) => index !== indexToDelete);
     setSubmitCommit(updatedCommit);
     localStorage.setItem("commitMessage", JSON.stringify(updatedCommit));
+    toast.success("Delete comment successfully")
   }
 
   return (
