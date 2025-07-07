@@ -11,3 +11,21 @@
   justify-content: center;
   color: white;
 }
+@media (min-width: 969px) and (max-width: 1024px) {
+  .course-tabs {
+    padding-top: 30px;
+  }
+}
+@media (min-width: 865px) and (max-width: 1024px) {
+  .courses-start {
+    padding-top: 30px;
+  }
+  .course-tabs{
+    padding-top: 70px;
+  }
+}
+@media  (max-width: 767px) {
+    .course-tabs{
+    padding-top: 270px;
+  }
+}

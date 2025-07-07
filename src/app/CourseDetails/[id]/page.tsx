@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ImStatsBars } from "react-icons/im";
 import BtnLink from "@/components/ui/BtnLink";
 import { DataCorurses } from "@/types/typeCourses";
+import { MdFileCopy, MdQuiz } from "react-icons/md";
 import { RiGraduationCapFill } from "react-icons/ri";
 import { IoIosArrowForward, IoIosTime } from "react-icons/io";
-import CourseTabs from "@/components/pages/CourseTabs";
-// import { ImStatsBars } from "react-icons/im";
-// import { MdFileCopy, MdQuiz } from "react-icons/md";
+import CourseTabs from "@/features/CourseTabs/components/CourseTabs";
 
 async function getCourse(id: string) {
   const response = await fetch("https://edupress-neon.vercel.app/json/featured.json", {
@@ -19,7 +19,6 @@ async function getCourse(id: string) {
 }
 
 export default async function CourseDetails({ params }: { params: Promise<{ id: string }> }) {
-  
   const course = await getCourse((await params).id);
 
   if (!course) return notFound();
@@ -37,40 +36,42 @@ export default async function CourseDetails({ params }: { params: Promise<{ id: 
         <div className="flex flex-col gap-2 py-9">
           <div className="flex items-center gap-4">
             <p className="py-2 px-3 bg-gray-600 text-white w-fit rounded-lg">{course.Photography}</p>
-            <p className="text-white mb-2">
-              <span className="text-gray-500">By</span> {course.by}
+            <p className="text-white mb-2 sm:text-xl text-sm">
+              <span className="text-gray-500 sm:text-xl text-md">By</span> {course.by}
             </p>
           </div>
 
           <div>
-            <h1 className="text-2xl sm:text-3xl text-white">{course.title}</h1>
+            <h1 className="text-xl sm:text-2xl md:text-3xl text-white">{course.title}</h1>
           </div>
 
-          <div className="flex items-center gap-4">
-            <p className=" flex items-center gap-2 text-gray-400">
+          <div className="flex items-center flex-wrap sm:gap-4 gap-1">
+            <p className=" flex items-center gap-2 text-gray-400 text-sm">
               <IoIosTime className="text-amber-500" /> {course.time} Week
             </p>
-            <p className=" flex items-center gap-2 text-gray-400">
+            <p className=" flex items-center gap-2 text-gray-400 text-sm">
               <RiGraduationCapFill className="text-amber-500" /> {course.students} Students
             </p>
-            {/*<p className=" flex items-center gap-2 text-gray-400">
+
+            <p className=" flex items-center gap-2 text-gray-400 text-sm">
+              <MdQuiz className="text-amber-500" />
+              {course.Quizzes} Quizzes
+            </p>
+
+            <p className=" flex items-center gap-2 text-gray-400 text-sm">
               <ImStatsBars className="text-amber-500" /> {course.levels}
             </p>
-            <p className=" flex items-center gap-2 text-gray-400">
+
+            <p className=" flex items-center gap-2 text-gray-400 text-sm">
               <MdFileCopy className="text-amber-500" />
-              {course.Lessons}
+              {course.Lessons} Lessons
             </p>
-            <p className=" flex items-center gap-2 text-gray-400">
-              <MdQuiz className="text-amber-500" />
-              {course.Quizzes}
-            </p>
-            */}
           </div>
         </div>
 
-        <div className="lg:pt-27  mt-[-20] md:mt-0 lg:w-fit">
-          <div className="bg-white rounded-t-3xl rounded-b-2xl shadow">
-            <Image src={course.img} alt={course.title} className=" lg:w-[290px]  h-auto rounded w-[100%]" width={800} height={300} />
+        <div className="courses-start lg:pt-27 mt-[-20] md:mt-0 lg:w-fit">
+          <div className="bg-white rounded-t-3xl rounded-b-2xl shadow mx-2">
+            <Image src={course.img} alt={course.title} className=" md:w-[290px]  h-auto rounded w-[400px]" width={800} height={300} />
             <div className="flex justify-center items-center gap-4 py-7">
               <div className="flex items-center gap-2">
                 <p className="text-gray-500 line-through">{course.priceBefore}</p>
@@ -84,7 +85,7 @@ export default async function CourseDetails({ params }: { params: Promise<{ id: 
           </div>
         </div>
       </div>
-      <div className="sm:pt-75 pt-70 lg:pt-0">
+      <div className="course-tabs sm:pt-55 lg:pt-0 ">
         <CourseTabs />
       </div>
     </div>

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MdQuiz } from "react-icons/md";
 import { IoIosTime } from "react-icons/io";
 import { DataCorurses } from "@/types/typeCourses";
 import BtnLinkAll from "@/components/ui/BtnLinkAll";
@@ -46,10 +45,6 @@ export default async function FeaturedCoursesAll() {
                   </p>
                   <p className="ml-1 flex items-center gap-2 text-gray-400">
                     <RiGraduationCapFill className="text-amber-500" /> {course.students} Students
-                  </p>
-                  <p className=" flex items-center gap-2 text-gray-400">
-                    <MdQuiz className="text-amber-500" />
-                    {course.Quizzes}
                   </p>
                 </div>
               </div>

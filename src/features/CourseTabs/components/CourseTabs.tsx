@@ -1,32 +1,59 @@
 "use client";
 
-import FAQs from "../ui/FAQs";
 import Image from "next/image";
-import { useState } from "react";
-import Rating from "../ui/Rating";
 import { CiStar } from "react-icons/ci";
 import { useForm } from "react-hook-form";
 import { IoIosTime } from "react-icons/io";
 import { MdFileCopy } from "react-icons/md";
-import ActiveCurriculum from "../ui/ActiveCurriculum";
+import { useEffect, useState } from "react";
+import FAQs from "../../../components/ui/FAQs";
+import Rating from "../../../components/ui/Rating";
+import { DateForComment } from "../types/courseTabsTypes";
+import { getCommit } from "../services/courseTabsServices";
+import ActiveCurriculum from "../../../components/ui/ActiveCurriculum";
 import { FaFacebookF, FaInstagram, FaPinterestP, FaStar, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { BsReply } from "react-icons/bs";
+import { TiDelete } from "react-icons/ti";
 
-interface DateForComment {
-  name: string;
-  email: string;
-  comment: string;
-}
 const tabs = ["Overview", "Curriculum", "Instructor", "FAQs", "Reviews"];
 
 export default function CourseTabs() {
+  const [submitCommit, setSubmitCommit] = useState<DateForComment[]>([]);
+
   const [activeTab, setActiveTab] = useState("Overview");
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<DateForComment>();
 
-  function onSubmit() {}
+  useEffect(() => {
+    const commitMessage = localStorage.getItem("commitMessage");
+    setSubmitCommit(commitMessage ? JSON.parse(commitMessage) : []);
+  }, []);
+
+  useEffect(() => {
+    setSubmitCommit(getCommit());
+  }, []);
+
+  function onSubmit(data: Omit<DateForComment, "date">) {
+    const printDate: DateForComment = {
+      ...data,
+      date: new Date().toLocaleDateString(),
+    };
+    const newCommit = [...submitCommit, printDate];
+    setSubmitCommit(newCommit);
+    localStorage.setItem("commitMessage", JSON.stringify(newCommit));
+    reset();
+  }
+
+  function handleDelete(indexToDelete: number) {
+    const updatedCommit = submitCommit.filter((_, index) => index !== indexToDelete);
+    setSubmitCommit(updatedCommit);
+    localStorage.setItem("commitMessage", JSON.stringify(updatedCommit));
+  }
+
   return (
     <div className="">
       <div className="flex justify-around items-center w-[100%] px-2">
@@ -154,6 +181,52 @@ export default function CourseTabs() {
               <div>
                 <Rating />
               </div>
+              <hr className={`my-3 text-gray-400 ${submitCommit.length > 0 ? "block" : " hidden"}`} />
+              <div>
+                {submitCommit && (
+                  <div>
+                    {submitCommit.map((comment, index) => (
+                      <div key={index} className="flex gap-3 py-2">
+                        <div className="h-10 w-10 rounded-full bg-gray-300 "></div>
+                        <div className="w-full  ">
+                          <div className="flex justify-between w-full">
+                            <div>
+                              <p className="font-semibold">{comment.name}</p>
+                            </div>
+                            <div className="text-gray-600 text-sm">
+                              {comment.date ? (
+                                (() => {
+                                  const date = new Date(comment.date);
+                                  const month = date.toLocaleDateString("en-US", { month: "long" });
+                                  const day = String(date.getDate()).padStart(2, "0");
+                                  const year = date.getFullYear();
+                                  return (
+                                    <p className="text-gray-600">
+                                      {month} {day} , {year}
+                                    </p>
+                                  );
+                                })()
+                              ) : (
+                                <p>error</p>
+                              )}
+                            </div>
+                          </div>
+
+                          <p className="text-gray-600">{comment.comment}</p>
+                          <div className="flex items-center justify-between">
+                            <button className="flex items-center pt-2 gap-2 text-gray-600 cursor-pointer">
+                              <BsReply className="text-red-500" /> Reply
+                            </button>
+                            <button onClick={() => handleDelete(index)} className="cursor-pointer text-2xl text-red-500">
+                              <TiDelete />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </div>
@@ -161,12 +234,12 @@ export default function CourseTabs() {
         <div className="lg:block hidden"></div>
       </div>
 
-      <div className="flex w-[85%] justify-around px-2 pb-4">
+      <div className="flex lg:w-[85%] w-full justify-around px-2 pb-4">
         <div className="lg:w-[51%] w-full px-3">
           <h3 className="text-2xl">Leave a comment</h3>
           <p>Your email address will not be published. Required fields are marked *</p>
-          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2">
-            <div className="flex gap-2 mt-2">
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2 w-full">
+            <div className="flex gap-2 mt-2 w-full">
               <div className="w-full">
                 <input
                   type="text"
