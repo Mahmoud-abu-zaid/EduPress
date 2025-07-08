@@ -3,16 +3,9 @@
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import BtnLink from "../ui/BtnLink";
-import { useEffect, useState } from "react";
 export default function HeroHome() {
   const { t } = useTranslation();
 
-  const [isRTL, setIsRTL] = useState(false);
-
-  useEffect(() => {
-    const dir = localStorage.getItem("direction") || "ltr";
-    setIsRTL(dir === "ltr");
-  }, []);
 
   return (
     <>
@@ -33,7 +26,7 @@ export default function HeroHome() {
             </div>
           </div>
           <div className="h-[80vh] lg:block hidden">
-            <Image className={`h-full  duration-500 ${isRTL ? "" : "scale-x-[-1]"}`} src="/img/heroHome.png" alt="Hero Home Image" width={500} height={300} />
+            <Image className={`h-full  duration-500 `} src="/img/heroHome.png" alt="Hero Home Image" width={500} height={300} />
           </div>
         </div>
       </div>
