@@ -9,6 +9,34 @@ import { RiGraduationCapFill } from "react-icons/ri";
 import { IoIosArrowForward, IoIosTime } from "react-icons/io";
 import CourseTabs from "@/features/CourseTabs/components/CourseTabs";
 
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+  const courseId = (await params).id;
+  const course = await getCourse(courseId);
+
+  if (!course) {
+    return {
+      title: "Course Not Found",
+      description: "The requested course does not exist.",
+    };
+  }
+  return {
+    title: course.title,
+    description: `Learn ${course.title} with ${course.by}. Duration: ${course.time} weeks. Price: ${course.priceAfter}`,
+    openGraph: {
+      title: course.title,
+      description: `Learn ${course.title} with ${course.by}. Duration: ${course.time} weeks. Price: ${course.priceAfter}`,
+      images: [
+        {
+          url: course.img,
+          width: 800,
+          height: 600,
+          alt: course.title,
+        },
+      ],
+    },
+  };
+}
+
 async function getCourse(id: string) {
   const response = await fetch("https://edupress-neon.vercel.app/json/featured.json", {
     cache: "no-store",
