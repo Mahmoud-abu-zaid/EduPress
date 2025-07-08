@@ -1,9 +1,11 @@
 import Image from "next/image";
 import BtnLink from "./BtnLink";
+import FadeInOnScroll from "../animation/FadeInOnScroll";
 
 export default function BannerExplorerCourse() {
   return (
     <>
+    <FadeInOnScroll>
       <div className="flex justify-center items-center py-6">
         <Image className="w-[93%] h-[270px]" src="/img/Vector (2).png" alt="" width={800} height={300} />
         <div className=" absolute md:left-20 left-9">
@@ -16,6 +18,7 @@ export default function BannerExplorerCourse() {
           <BtnLink title="Explorer Course" path="/" />
         </div>
       </div>
+      </FadeInOnScroll> 
     </>
   );
 }
