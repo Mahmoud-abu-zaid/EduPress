@@ -1,7 +1,7 @@
 import { DataCorurses } from "@/types/typeCourses";
 
 export default async function AllCourses() {
-  const response =await fetch("http://localhost:3000/json/allCourses.json", {
+  const response =await fetch("https://edupress-neon.vercel.app/json/allCourses.json", {
     cache: "no-store",
   });
 
