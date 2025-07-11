@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import BtnLink from "../ui/BtnLink";
 
 import FadeInOnScroll from "../animation/FadeInOnScroll";
+import { exo2 } from "@/fonts/allFonts";
 export default function HeroHome() {
   const { t } = useTranslation();
 
@@ -14,7 +15,7 @@ export default function HeroHome() {
         <div className="flex justify-between items-center gap-5 text-black">
           <div className="p-3">
             <FadeInOnScroll>
-              <h2 className="text-4xl font-bold mb-5">
+              <h2 className={`text-4xl font-semibold mb-5 ${exo2.className}`}>
                 {t("Build Skills with")}
                 <br />
                 {t("Online Course")}

@@ -25,8 +25,9 @@ export default async function AllCourses() {
         <div>
           <div>
             {data.map((course: DataCorurses) => (
-              <div key={course.id} className="border-2 p-5 mb-5 rounded-lg">
+              <div key={course.id} className=" p-5 mb-5 rounded-lg">
                 {course.by}
+                
               </div>
             ))}
           </div>
