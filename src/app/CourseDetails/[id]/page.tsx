@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 }
 
 async function getCourse(id: string) {
-  const response = await fetch("https://edupress-neon.vercel.app/json/featured.json", {
+  const response = await fetch("https://edupress-neon.vercel.app/json/allCourses.json", {
     cache: "no-store",
   });
 
@@ -56,9 +56,9 @@ export default async function CourseDetails({ params }: { params: Promise<{ id: 
       <div className="flex items-center gap-1 flex-wrap bg-gray-100 py-2 px-4 text-gray-500">
         <Link href="/">Homepage</Link>
         <IoIosArrowForward />
-        <Link href="/AllCourses">Courses</Link>
+        <Link href="/allCourses">Courses</Link>
         <IoIosArrowForward />
-        <Link href={`/CourseDetails/${course.id}`}>{course.title}</Link>
+        <Link href={`/allCourses/${course.id}`}>{course.title}</Link>
       </div>
 
       <FadeInOnScroll>
