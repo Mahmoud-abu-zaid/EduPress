@@ -14,6 +14,9 @@ import { ImStatsBars } from "react-icons/im";
 
 export default function CourseList({ data }: { data: DataCorurses[] }) {
   const [search, setSearch] = useState("");
+
+  const [sliderIndex, setSliderIndex] = useState(1);
+
   const [isGridView, setIsGridView] = useState(true);
 
   const filteredData = data.filter(
@@ -23,6 +26,16 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
       course.by?.toLowerCase().includes(search.toLowerCase()) ||
       course.priceFree?.toLowerCase().includes(search.toLowerCase())
   );
+
+  const coursesPage = 6;
+
+  const startIndex = (sliderIndex - 1) * coursesPage;
+
+  const endIndex = startIndex + coursesPage;
+
+  const paginatedData = filteredData.slice(startIndex, endIndex);
+
+  const totalPages = Math.ceil(filteredData.length / coursesPage);
 
   return (
     <>
@@ -47,7 +60,7 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
         </div>
       </div>
 
-      {filteredData.length === 0 ? (
+      {paginatedData.length === 0 ? (
         <div className="flex justify-center items-center w-full h-96">
           <div className="text-gray-500 text-lg py-10 flex flex-col justify-center items-center gap-3">
             <Image src="/img/not-found.webp" alt=" icon not found searchnp" width={250} height={100} />
@@ -56,7 +69,7 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
         </div>
       ) : (
         <div className={`grid gap-10 justify-center pb-8 ${isGridView ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"}`}>
-          {filteredData.map((course) => (
+          {paginatedData.map((course) => (
             <div key={course.id} className={`rounded-3xl shadow-lg overflow-hidden flex  ${isGridView ? "flex-col" : "flex-col sm:flex-row"}`}>
               <Link href={`/CourseDetails/${course.id}`} className={isGridView ? "" : "w-full sm:w-1/3"}>
                 <div className="relative h-full">
@@ -119,6 +132,13 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
           ))}
         </div>
       )}
+      <div className="flex justify-center items-center gap-4 my-8">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button key={index} onClick={() => setSliderIndex(index + 1)} className={`px-5 py-3 rounded-4xl shadow ${sliderIndex === index + 1 ? "bg-black text-white" : "bg-gray-200 text-gray-700"}`}>
+            {index + 1}
+          </button>
+        ))}
+      </div>
     </>
   );
 }
