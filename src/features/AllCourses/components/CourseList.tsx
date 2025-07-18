@@ -18,14 +18,24 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
   const [sliderIndex, setSliderIndex] = useState(1);
 
   const [isGridView, setIsGridView] = useState(true);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
-  const filteredData = data.filter(
-    (course) =>
+  const filteredData = data.filter((course) => {
+    const matchesSearch =
       course.title?.toLowerCase().includes(search.toLowerCase()) ||
       course.Photography?.toLowerCase().includes(search.toLowerCase()) ||
       course.by?.toLowerCase().includes(search.toLowerCase()) ||
-      course.priceFree?.toLowerCase().includes(search.toLowerCase())
-  );
+      course.priceFree?.toLowerCase().includes(search.toLowerCase());
+
+    const matchesCategory =
+      selectedCategories.length === 0 ||
+      selectedCategories.includes(course.category) ||
+      selectedCategories.includes(course.instructor) ||
+      selectedCategories.includes(course.levels) ||
+      selectedCategories.includes(course.review.toString());
+
+    return matchesSearch && matchesCategory;
+  });
 
   const coursesPage = 6;
 
@@ -154,7 +164,17 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
               {["Commercial", "Office", "Shop", "Educate", "Academy", "Single family home", "Studio", "University"].map((item) => (
                 <div key={item} className="flex justify-between items-center mb-1">
                   <label className="flex items-center gap-2">
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      checked={selectedCategories.includes(item)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setSelectedCategories([...selectedCategories, item]);
+                        } else {
+                          setSelectedCategories(selectedCategories.filter((category) => category !== item));
+                        }
+                      }}
+                    />
                     <span>{item}</span>
                   </label>
                 </div>
@@ -166,7 +186,17 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
               {["Kenny White", "John Doe"].map((item) => (
                 <div key={item} className="flex justify-between items-center mb-1">
                   <label className="flex items-center gap-2">
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      checked={selectedCategories.includes(item)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setSelectedCategories([...selectedCategories, item]);
+                        } else {
+                          setSelectedCategories(selectedCategories.filter((category) => category !== item));
+                        }
+                      }}
+                    />
                     <span>{item}</span>
                   </label>
                 </div>
@@ -178,7 +208,17 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
               {["All", "Free", "Paid"].map((item) => (
                 <div key={item} className="flex justify-between items-center mb-1">
                   <label className="flex items-center gap-2">
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      checked={selectedCategories.includes(item)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setSelectedCategories([...selectedCategories, item]);
+                        } else {
+                          setSelectedCategories(selectedCategories.filter((category) => category !== item));
+                        }
+                      }}
+                    />
                     <span>{item}</span>
                   </label>
                 </div>
@@ -190,7 +230,17 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
               {Array.from({ length: 5 }, (_, i) => 5 - i).map((stars) => (
                 <div key={stars} className="flex justify-between items-center mb-1">
                   <label className="flex items-center gap-1 text-yellow-400">
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      checked={selectedCategories.includes(stars.toString())}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setSelectedCategories([...selectedCategories, stars.toString()]);
+                        } else {
+                          setSelectedCategories(selectedCategories.filter((category) => category !== stars.toString()));
+                        }
+                      }}
+                    />
                     {Array.from({ length: 5 }, (_, j) => (
                       <span key={j}>{j < stars ? "★" : "☆"}</span>
                     ))}
@@ -204,7 +254,17 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
               {["All levels", "Beginner", "Intermediate", "Expert"].map((item) => (
                 <div key={item} className="flex justify-between items-center mb-1">
                   <label className="flex items-center gap-2">
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      checked={selectedCategories.includes(item)}
+                      onChange={(e) => {
+                        if (e.target.checked) {
+                          setSelectedCategories([...selectedCategories, item]);
+                        } else {
+                          setSelectedCategories(selectedCategories.filter((category) => category !== item));
+                        }
+                      }}
+                    />
                     <span>{item}</span>
                   </label>
                 </div>

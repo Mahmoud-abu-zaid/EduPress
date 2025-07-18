@@ -12,4 +12,7 @@ export interface DataCorurses {
   Lessons: number;
   Quizzes: number;
   levels: string;
+  category: string;
+  instructor: string;
+  review: number;
 }
