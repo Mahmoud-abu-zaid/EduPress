@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "img": "/img/Rectangle 139.png",
+    "img": "/img/Rectangle 139-4.png",
     "by": "Determined-Poitras",
     "title": "Create an LMS Website with LearnPress",
     "time": "2",
@@ -13,13 +13,13 @@
     "Lessons": "20",
     "Quizzes": "3",
     "levels": "All levels",
-    "category": "Commercial",
+    "category": "Academy",
     "instructor": "Kenny White",
-    "review": 5
+    "review": 1
   },
   {
     "id": "2",
-    "img": "/img/Rectangle 139-1.png",
+    "img": "/img/Rectangle 139-5.png",
     "by": "Determined-Poitras",
     "title": "Design a website with ThimPress",
     "time": "2",
@@ -31,9 +31,9 @@
     "Lessons": "20",
     "Quizzes": "3",
     "levels": "All levels",
-    "category": "Office",
+    "category": "Single family home",
     "instructor": "John Doe",
-    "review": 4
+    "review": 5
   },
   {
     "id": "3",
@@ -73,7 +73,7 @@
   },
   {
     "id": "5",
-    "img": "/img/Rectangle 139-4.png",
+    "img": "/img/Rectangle 139.png",
     "by": "Determined-Poitras",
     "title": "Create an LMS Website with LearnPress",
     "time": "2",
@@ -85,13 +85,13 @@
     "Lessons": "20",
     "Quizzes": "3",
     "levels": "All levels",
-    "category": "Academy",
+    "category": "Commercial",
     "instructor": "Kenny White",
-    "review": 1
+    "review": 5
   },
   {
     "id": "6",
-    "img": "/img/Rectangle 139-5.png",
+    "img": "/img/Rectangle 139-1.png",
     "by": "Determined-Poitras",
     "title": "Design a website with ThimPress",
     "time": "2",
@@ -103,9 +103,9 @@
     "Lessons": "20",
     "Quizzes": "3",
     "levels": "All levels",
-    "category": "Single family home",
+    "category": "Office",
     "instructor": "John Doe",
-    "review": 5
+    "review": 4
   },
   {
     "id": "7",
@@ -217,60 +217,6 @@
   },
   {
     "id": "13",
-    "img": "/img/Rectangle 139.png",
-    "by": "Determined-Poitras",
-    "title": "Create an LMS Website with LearnPress",
-    "time": "2",
-    "students": "156",
-    "priceBefore": "$29.0",
-    "priceFree": "Free",
-    "priceAfter": "",
-    "Photography": "Photography",
-    "Lessons": "20",
-    "Quizzes": "3",
-    "levels": "All levels",
-    "category": "Academy",
-    "instructor": "Kenny White",
-    "review": 3
-  },
-  {
-    "id": "14",
-    "img": "/img/Rectangle 139-1.png",
-    "by": "Determined-Poitras",
-    "title": "Design a website with ThimPress",
-    "time": "2",
-    "students": "156",
-    "priceBefore": "$29.0",
-    "priceFree": "",
-    "priceAfter": "$49.0",
-    "Photography": "Photography",
-    "Lessons": "20",
-    "Quizzes": "3",
-    "levels": "All levels",
-    "category": "Single family home",
-    "instructor": "John Doe",
-    "review": 2
-  },
-  {
-    "id": "15",
-    "img": "/img/Rectangle 139-2.png",
-    "by": "Determined-Poitras",
-    "title": "Create an LMS Website with LearnPress",
-    "time": "2",
-    "students": "156",
-    "priceBefore": "$29.0",
-    "priceFree": "Free",
-    "priceAfter": "",
-    "Photography": "Photography",
-    "Lessons": "20",
-    "Quizzes": "3",
-    "levels": "All levels",
-    "category": "Studio",
-    "instructor": "Kenny White",
-    "review": 1
-  },
-  {
-    "id": "16",
     "img": "/img/Rectangle 139-3.png",
     "by": "Determined-Poitras",
     "title": "Design a website with ThimPress",
@@ -288,7 +234,7 @@
     "review": 5
   },
   {
-    "id": "17",
+    "id": "14",
     "img": "/img/Rectangle 139-4.png",
     "by": "Determined-Poitras",
     "title": "Create an LMS Website with LearnPress",
@@ -306,7 +252,7 @@
     "review": 4
   },
   {
-    "id": "18",
+    "id": "15",
     "img": "/img/Rectangle 139-5.png",
     "by": "Determined-Poitras",
     "title": "Design a website with ThimPress",
@@ -322,5 +268,59 @@
     "category": "Office",
     "instructor": "John Doe",
     "review": 3
+  },
+  {
+    "id": "16",
+    "img": "/img/Rectangle 139.png",
+    "by": "Determined-Poitras",
+    "title": "Create an LMS Website with LearnPress",
+    "time": "2",
+    "students": "156",
+    "priceBefore": "$29.0",
+    "priceFree": "Free",
+    "priceAfter": "",
+    "Photography": "Photography",
+    "Lessons": "20",
+    "Quizzes": "3",
+    "levels": "All levels",
+    "category": "Academy",
+    "instructor": "Kenny White",
+    "review": 3
+  },
+  {
+    "id": "17",
+    "img": "/img/Rectangle 139-1.png",
+    "by": "Determined-Poitras",
+    "title": "Design a website with ThimPress",
+    "time": "2",
+    "students": "156",
+    "priceBefore": "$29.0",
+    "priceFree": "",
+    "priceAfter": "$49.0",
+    "Photography": "Photography",
+    "Lessons": "20",
+    "Quizzes": "3",
+    "levels": "All levels",
+    "category": "Single family home",
+    "instructor": "John Doe",
+    "review": 2
+  },
+  {
+    "id": "18",
+    "img": "/img/Rectangle 139-2.png",
+    "by": "Determined-Poitras",
+    "title": "Create an LMS Website with LearnPress",
+    "time": "2",
+    "students": "156",
+    "priceBefore": "$29.0",
+    "priceFree": "Free",
+    "priceAfter": "",
+    "Photography": "Photography",
+    "Lessons": "20",
+    "Quizzes": "3",
+    "levels": "All levels",
+    "category": "Studio",
+    "instructor": "Kenny White",
+    "review": 1
   }
 ]
