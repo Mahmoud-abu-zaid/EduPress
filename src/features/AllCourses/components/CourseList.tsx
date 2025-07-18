@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
 import { IoIosTime } from "react-icons/io";
 import { TbLayoutList } from "react-icons/tb";
@@ -47,6 +47,10 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
   const paginatedData = filteredData.slice(startIndex, endIndex);
 
   const totalPages = Math.ceil(filteredData.length / coursesPage);
+
+  useEffect(() => {
+    setSliderIndex(1);
+  }, [search, selectedCategories]);
 
   return (
     <>
