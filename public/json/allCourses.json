@@ -322,5 +322,47 @@
     "category": "Studio",
     "instructor": "Kenny White",
     "review": 1
+  },
+  {
+    "id": "19",
+    "img": "/img/Rectangle 141-2 (1).png",
+    "by": "Determined-Poitras",
+    "title": "Best LearnPress WordPress Theme Collection for 2023",
+    "time": "2",
+    "students": "156",
+    "priceBefore": "$29.0",
+    "priceFree": "Free",
+    "Photography": "Photography",
+    "Lessons": "20",
+    "Quizzes": "3",
+    "levels": "All levels"
+  },
+  {
+    "id": "20",
+    "img": "/img/Rectangle 141-2 (2).png",
+    "by": "Determined-Poitras",
+    "title": "Best LearnPress WordPress Theme Collection for 2023",
+    "time": "2",
+    "students": "156",
+    "priceBefore": "$29.0",
+    "priceAfter": "$49.0",
+    "Photography": "Photography",
+    "Lessons": "20",
+    "Quizzes": "3",
+    "levels": "All levels"
+  },
+  {
+    "id": "21",
+    "img": "/img/Rectangle 141-2 (3).png",
+    "by": "Determined-Poitras",
+    "title": "Best LearnPress WordPress Theme Collection for 2023",
+    "time": "2",
+    "students": "156",
+    "priceBefore": "$29.0",
+    "priceFree": "Free",
+    "Photography": "Photography",
+    "Lessons": "20",
+    "Quizzes": "3",
+    "levels": "All levels"
   }
 ]
