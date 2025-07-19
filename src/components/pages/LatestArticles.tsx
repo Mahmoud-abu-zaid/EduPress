@@ -8,7 +8,7 @@ import TitleDescription from "../ui/TitleDescription";
 import FadeInOnScroll from "../animation/FadeInOnScroll";
 
 export default async function LatestArticles() {
-  const response = await fetch("https://edupress-neon.vercel.app/json/latestArticles.json", {
+   const response = await fetch("https://edupress-neon.vercel.app/json/latestArticles.json", {
     cache: "no-store",
   });
 
@@ -17,6 +17,7 @@ export default async function LatestArticles() {
   }
 
   const data: DataCorurses[] = await response.json();
+
   return (
     <>
       <div>
