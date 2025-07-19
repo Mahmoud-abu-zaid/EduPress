@@ -2,6 +2,7 @@ import HeroHome from "@/components/pages/HeroHome";
 import Categories from "@/components/pages/Categories";
 import FeaturedCoursesAll from "@/components/pages/FeaturedCoursesAll";
 import BannerExplorerCourse from "@/components/ui/BannerExplorerCourse";
+import Statistics from "@/components/pages/Statistics";
 
 export const metadata = {
   title: "EduPress | Learn Smarter, Grow Faster",
@@ -36,11 +37,11 @@ export default function Home() {
   return (
     <>
       <HeroHome />
-      <div>
-        <Categories />
-        <FeaturedCoursesAll />
-        <BannerExplorerCourse />
-      </div>
+
+      <Categories />
+      <FeaturedCoursesAll />
+      <BannerExplorerCourse />
+      <Statistics />
     </>
   );
 }
