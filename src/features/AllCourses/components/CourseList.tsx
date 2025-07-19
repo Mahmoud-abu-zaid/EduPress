@@ -33,7 +33,7 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
       selectedCategories.includes(course.category) ||
       selectedCategories.includes(course.instructor) ||
       selectedCategories.includes(course.levels) ||
-      selectedCategories.includes(course.review.toString());
+      (course.review !== undefined && selectedCategories.includes(course.review.toString()));
 
     return matchesSearch && matchesCategory;
   });
