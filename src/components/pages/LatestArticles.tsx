@@ -22,8 +22,8 @@ export default async function LatestArticles() {
       <div>
         <FadeInOnScroll>
           <div className="flex items-center justify-between flex-wrap py-9 px-7">
-            <TitleDescription title="Featured courses" description="Explore our Popular Courses" />
-            <BtnLinkAll path="AllCourses" title="All Courses" />
+            <TitleDescription title="Latest articles" description="Explore our Free Acticles" />
+            <BtnLinkAll path="" title="All articles" />
           </div>
           <div className="max-w-screen-xl mx-auto pb-5 px-5 sm:p-10 md:pb-16">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
