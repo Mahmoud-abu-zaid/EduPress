@@ -6,7 +6,7 @@ import { useInView } from "react-intersection-observer";
 export default function FadeInOnScroll({ children, index = 0, stagger = false }: { children: React.ReactNode; index?: number; stagger?: boolean }) {
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.1,
     rootMargin: "0px",
   });
 
@@ -16,7 +16,7 @@ export default function FadeInOnScroll({ children, index = 0, stagger = false }:
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{
-        duration: 1.2,
+        duration: 1,
         delay: stagger ? index * 0.1 : 0,
         ease: "easeOut",
       }}
