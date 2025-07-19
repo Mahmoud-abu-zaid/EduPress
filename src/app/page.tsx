@@ -4,6 +4,7 @@ import FeaturedCoursesAll from "@/components/pages/FeaturedCoursesAll";
 import BannerExplorerCourse from "@/components/ui/BannerExplorerCourse";
 import Statistics from "@/components/pages/Statistics";
 import GrowSkils from "@/components/pages/GrowSkils";
+import FeedBacks from "@/components/pages/Feedbacks";
 
 export const metadata = {
   title: "EduPress | Learn Smarter, Grow Faster",
@@ -44,6 +45,7 @@ export default function Home() {
       <BannerExplorerCourse />
       <Statistics />
       <GrowSkils />
+      <FeedBacks />
     </>
   );
 }
