@@ -3,6 +3,7 @@ import Categories from "@/components/pages/Categories";
 import FeaturedCoursesAll from "@/components/pages/FeaturedCoursesAll";
 import BannerExplorerCourse from "@/components/ui/BannerExplorerCourse";
 import Statistics from "@/components/pages/Statistics";
+import GrowSkils from "@/components/pages/GrowSkils";
 
 export const metadata = {
   title: "EduPress | Learn Smarter, Grow Faster",
@@ -42,6 +43,7 @@ export default function Home() {
       <FeaturedCoursesAll />
       <BannerExplorerCourse />
       <Statistics />
+      <GrowSkils />
     </>
   );
 }
