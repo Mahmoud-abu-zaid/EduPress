@@ -9,6 +9,8 @@ import { TbLayoutList } from "react-icons/tb";
 import { HiMiniQueueList } from "react-icons/hi2";
 import FadeInOnScroll from "@/components/animation/FadeInOnScroll";
 
+import { IoIosCalendar } from "react-icons/io";
+
 export default function Blog({ data }: { data: BlogType[] }) {
   const [search, setSearch] = useState("");
 
@@ -40,7 +42,7 @@ export default function Blog({ data }: { data: BlogType[] }) {
     <>
       <FadeInOnScroll>
         <div className="flex justify-center  gap-6">
-          <div className="flex flex-col  w-[80%] gap-3">
+          <div className="flex flex-col  w-[75%] gap-3">
             <div className="flex sm:justify-between justify-center flex-wrap items-center py-5 px-5 w-full gap-5">
               <div>
                 <h3 className="text-xl">All Courses</h3>
@@ -73,7 +75,7 @@ export default function Blog({ data }: { data: BlogType[] }) {
               <div className={`grid gap-10 justify-center pb-8 ${isGridView ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"}`}>
                 {paginatedData.map((blog) => (
                   <div key={blog.id} className={`rounded-3xl shadow-lg overflow-hidden flex  ${isGridView ? "flex-col" : "flex-col sm:flex-row"}`}>
-                    <Link href={`/CourseDetails/${blog.id}`} className={isGridView ? "" : "w-full sm:w-1/3"}>
+                    <Link href={`/BlogDetails/${blog.id}`} className={isGridView ? "" : "w-full sm:w-1/3"}>
                       <div className="relative h-full">
                         <Image src={blog.img} alt={blog.title} className={`w-full h-full`} width={400} height={250} />
                         <div className="text-xs absolute top-0 left-3 bg-black px-4 py-2 text-white mt-3 mr-3 rounded-lg">{blog.Photography}</div>
@@ -83,13 +85,18 @@ export default function Blog({ data }: { data: BlogType[] }) {
 
                     <div className={`flex flex-col justify-between ${isGridView ? "px-6 py-4" : "p-4 w-full sm:w-2/3"}`}>
                       <div>
-                        <Link href={`/CourseDetails/${blog.id}`} className="font-medium text-lg hover:text-amber-500 transition duration-300 inline-block mb-2">
+                        <Link href={`/BlogDetails/${blog.id}`} className="font-medium sm:text-lg hover:text-amber-500 transition duration-300 inline-block mb-2">
                           {blog.title}
                         </Link>
+                        <p className="flex items-center gap-2 ">
+                          <IoIosCalendar className="text-orange-400 text-xl font-bold" />
+                          {blog.data}
+                        </p>
+                        <p className="text-gray-500">{blog.discription}</p>
                       </div>
 
                       <div className="flex justify-between items-center pt-4 border-t border-gray-300 flex-wrap gap-4">
-                        <Link href={`/CourseDetails/${blog.id}`} className="text-sm whitespace-nowrap">
+                        <Link href={`/BlogDetails/${blog.id}`} className="text-sm whitespace-nowrap">
                           View More
                         </Link>
                       </div>
@@ -109,6 +116,30 @@ export default function Blog({ data }: { data: BlogType[] }) {
                 </button>
               ))}
             </div>
+          </div>
+          <div className="hidden lg:block p-4 w-[17.5%]">
+            <aside className="w-full py-4 space-y-6">
+              <div>
+                <h3 className="font-semibold mb-2">Category</h3>
+                {["Commercial", "Office", "Shop", "Educate", "Academy", "Single family home"].map((category) => (
+                  <div key={category} className="flex items-center justify-between text-gray-600">
+                    <p>{category}</p>
+                    <p>15</p>
+                  </div>
+                ))}
+              </div>
+
+              <div>
+                <h3 className="font-semibold mb-2">Tags</h3>
+                <div className="flex flex-wrap">
+                  {["Free couses","Marketing", "Idea", "LMS", "LearnPress", "Instructor"].map((tags) => (
+                    <div key={tags} className="p-1 py-3">
+                      <span className="p-2 border-[1px] border-gray-400 rounded text-gray-500 cursor-pointer hover:border-gray-800 hover:text-gray-900">{tags}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </FadeInOnScroll>

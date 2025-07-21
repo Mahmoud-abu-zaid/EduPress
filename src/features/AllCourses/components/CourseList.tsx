@@ -56,7 +56,7 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
     <>
       <FadeInOnScroll>
         <div className="flex justify-center  gap-6">
-          <div className="flex flex-col  w-[80%] gap-3">
+          <div className="flex flex-col  w-[75%] gap-3">
             <div className="flex sm:justify-between justify-center flex-wrap items-center py-5 px-5 w-full gap-5">
               <div>
                 <h3 className="text-xl">All Courses</h3>
@@ -163,7 +163,7 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
             </div>
           </div>
 
-          <div className="hidden lg:block px-4 w-[15%]">
+          <div className="hidden lg:block p-4  w-[18%]">
             <aside className="w-full py-4 space-y-6">
               <div>
                 <h3 className="font-semibold mb-2">Course Category</h3>
