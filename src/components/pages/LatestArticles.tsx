@@ -2,13 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import BtnLinkAll from "../ui/BtnLinkAll";
 import { IoIosTime } from "react-icons/io";
-import { DataCorurses } from "@/types/typeCourses";
+import { DataCorurses } from "@/features/AllCourses/types/typeCourses";
 import { RiGraduationCapFill } from "react-icons/ri";
 import TitleDescription from "../ui/TitleDescription";
 import FadeInOnScroll from "../animation/FadeInOnScroll";
 
 export default async function LatestArticles() {
-   const response = await fetch("https://edupress-neon.vercel.app/json/latestArticles.json", {
+  const response = await fetch("https://edupress-neon.vercel.app/json/latestArticles.json", {
     cache: "no-store",
   });
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ImStatsBars } from "react-icons/im";
 import BtnLink from "@/components/ui/BtnLink";
-import { DataCorurses } from "@/types/typeCourses";
+import { DataCorurses } from "@/features/AllCourses/types/typeCourses";
 import { MdFileCopy, MdQuiz } from "react-icons/md";
 import { RiGraduationCapFill } from "react-icons/ri";
 import { IoIosArrowForward, IoIosTime } from "react-icons/io";
@@ -58,7 +58,7 @@ export default async function CourseDetails({ params }: { params: Promise<{ id: 
         <IoIosArrowForward />
         <Link href="/allCourses">Courses</Link>
         <IoIosArrowForward />
-        <Link href={`/allCourses/${course.id}`}>{course.title}</Link>
+        <p>{course.title}</p>
       </div>
 
       <FadeInOnScroll>
