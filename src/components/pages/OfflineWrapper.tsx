@@ -7,10 +7,9 @@ export default function OfflineWrapper({ children }: { children: React.ReactNode
   const [isOnline, setIsOnline] = useState(true);
 
   useEffect(() => {
-    // أول حالة لما يفتح الصفحة
+    
     setIsOnline(navigator.onLine);
 
-    // نتابع الأحداث
     const handleOnline = () => setIsOnline(true);
     const handleOffline = () => setIsOnline(false);
 
@@ -29,7 +28,7 @@ export default function OfflineWrapper({ children }: { children: React.ReactNode
         <div>
           <span className="text-gray-600 flex items-center gap-6 text-7xl">
             
-            <IoCloudOfflineOutline /> {"You're  offline"}
+            <IoCloudOfflineOutline /> {"You're offline"}
           </span>
         </div>
       </div>
