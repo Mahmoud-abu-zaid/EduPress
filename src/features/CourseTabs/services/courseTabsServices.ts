@@ -1,15 +1,14 @@
 import { DateForComment } from "../types/courseTabsTypes";
 
-
-export function getCommit():DateForComment[] {
-  const commitMessage = localStorage.getItem("commitMessage");
-
+export function getCommit(): DateForComment[] {
+  const commitMessage = localStorage.getItem("courseComments");
   return commitMessage ? JSON.parse(commitMessage) : [];
 }
-export function setCommit(commitMessage: DateForComment[]) {
-  localStorage.setItem("commitMessage", JSON.stringify(commitMessage));
-}
-export function daleteCommit(commit: DateForComment[], indexToDalete: number): DateForComment[] {
-  return commit.filter((_, index) => index !== indexToDalete);
+
+export function setCommit(comments: DateForComment[]): void {
+  localStorage.setItem("courseComments", JSON.stringify(comments));
 }
 
+export function deleteCommit(comments: DateForComment[], indexToDelete: number): DateForComment[] {
+  return comments.filter((_, index) => index !== indexToDelete);
+}

@@ -116,7 +116,7 @@ export default async function CourseDetails({ params }: { params: Promise<{ id: 
           </div>
         </div>
         <div className="course-tabs sm:pt-55 lg:pt-0 ">
-          <CourseTabs />
+          <CourseTabs id={course.id} />
         </div>
       </FadeInOnScroll>
     </div>

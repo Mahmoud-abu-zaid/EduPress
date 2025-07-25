@@ -77,7 +77,7 @@ export default function Header() {
       </nav>
 
       {showMenu && (
-        <div className="lg:hidden bg-white px-6 pb-4 pt-2 absolute left-0 right-0 rounded-b-lg">
+        <div className="lg:hidden z-10 bg-white px-6 pb-4 pt-2 absolute left-0 right-0 rounded-b-lg">
           <ul className="flex flex-col gap-4">
             {nav.map((li) => (
               <li key={li.label}>

@@ -80,7 +80,7 @@ export default async function BlogDetails({ params }: { params: Promise<{ id: st
                 </div>
               ))}
             </div>
-            <FormComment/>
+            <FormComment id={blog.id} />
           </div>
         </div>
       </div>

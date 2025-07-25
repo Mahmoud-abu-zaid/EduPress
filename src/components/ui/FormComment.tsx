@@ -7,11 +7,11 @@ import { BsReply } from "react-icons/bs";
 import { TiDelete } from "react-icons/ti";
 import { toast } from "react-toastify";
 
-const getComment = (): DateForComment[] => JSON.parse(localStorage.getItem("commitMessage") || "[]");
+const getComment = (): DateForComment[] => JSON.parse(localStorage.getItem("blogComments") || "[]");
 
-const saveComment = (comment: DateForComment[]) => localStorage.setItem("commitMessage", JSON.stringify(comment));
+const saveComment = (comment: DateForComment[]) => localStorage.setItem("blogComments", JSON.stringify(comment));
 
-export default function CommentComponent() {
+export default function CommentComponent({ id }: { id: string }) {
   const {
     register,
     handleSubmit,
@@ -24,17 +24,22 @@ export default function CommentComponent() {
     setComment(getComment());
   }, []);
 
-  const onSubmit = (data: Omit<DateForComment, "date">) => {
-    const newComment = { ...data, date: new Date().toLocaleDateString() };
-    const updated = [...comment, newComment];
+  const onSubmit = (data: Omit<DateForComment, "date" | "id">) => {
+    const allComments = getComment();
+    const newComment = { ...data, id, date: new Date().toLocaleDateString() };
+    const updated = [...allComments, newComment];
     setComment(updated);
     saveComment(updated);
     reset();
     toast.success("Comment added successfully");
   };
 
-  const deleteComment = (index: number) => {
-    const updated = comment.filter((_, i) => i !== index);
+  const deleteComment = (indexInFiltered: number) => {
+    const allComments = getComment();
+    const filteredForBlog = allComments.filter((c) => c.id === id);
+    const commentToDelete = filteredForBlog[indexInFiltered];
+
+    const updated = allComments.filter((c) => c !== commentToDelete);
     setComment(updated);
     saveComment(updated);
     toast.success("Comment deleted successfully");
@@ -44,49 +49,47 @@ export default function CommentComponent() {
     <>
       <div>
         <div>
-          {comment && (
-            <div>
-              {comment.map((comment, index) => (
-                <div key={index} className="flex gap-3 py-2">
-                  <div className="h-10 w-11 rounded-full bg-gray-300 "></div>
-                  <div className="w-full  ">
-                    <div className="flex justify-between w-full">
-                      <div>
-                        <p className="font-semibold">{comment.name}</p>
-                      </div>
-                      <div className="text-gray-600 text-sm">
-                        {comment.date ? (
-                          (() => {
-                            const date = new Date(comment.date);
-                            const month = date.toLocaleDateString("en-US", { month: "long" });
-                            const day = String(date.getDate()).padStart(2, "0");
-                            const year = date.getFullYear();
-                            return (
-                              <p className="text-gray-600">
-                                {month} {day} , {year}
-                              </p>
-                            );
-                          })()
-                        ) : (
-                          <p>error</p>
-                        )}
-                      </div>
+          {comment
+            .filter((c) => c.id === id)
+            .map((c, index) => (
+              <div key={index} className="flex gap-3 py-2">
+                <div className="h-10 w-11 rounded-full bg-gray-300 "></div>
+                <div className="w-full">
+                  <div className="flex justify-between w-full">
+                    <div>
+                      <p className="font-semibold">{c.name}</p>
                     </div>
-
-                    <p className="text-gray-600">{comment.comment}</p>
-                    <div className="flex items-center justify-between">
-                      <button className="flex items-center pt-2 gap-2 text-gray-600 cursor-pointer">
-                        <BsReply className="text-red-500" /> Reply
-                      </button>
-                      <button onClick={() => deleteComment(index)} className="cursor-pointer text-2xl text-red-500">
-                        <TiDelete />
-                      </button>
+                    <div className="text-gray-600 text-sm">
+                      {c.date ? (
+                        (() => {
+                          const date = new Date(c.date);
+                          const month = date.toLocaleDateString("en-US", { month: "long" });
+                          const day = String(date.getDate()).padStart(2, "0");
+                          const year = date.getFullYear();
+                          return (
+                            <p className="text-gray-600">
+                              {month} {day}, {year}
+                            </p>
+                          );
+                        })()
+                      ) : (
+                        <p>error</p>
+                      )}
                     </div>
                   </div>
+
+                  <p className="text-gray-600">{c.comment}</p>
+                  <div className="flex items-center justify-between">
+                    <button className="flex items-center pt-2 gap-2 text-gray-600 cursor-pointer">
+                      <BsReply className="text-red-500" /> Reply
+                    </button>
+                    <button onClick={() => deleteComment(index)} className="cursor-pointer text-2xl text-red-500">
+                      <TiDelete />
+                    </button>
+                  </div>
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
         </div>
         <div className="flex w-full  pb-4">
           <div className=" w-full ">

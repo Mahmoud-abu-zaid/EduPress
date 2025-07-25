@@ -19,7 +19,7 @@ import FadeInOnScroll from "@/components/animation/FadeInOnScroll";
 
 const tabs = ["Overview", "Curriculum", "Instructor", "FAQs", "Reviews"];
 
-export default function CourseTabs() {
+export default function CourseTabs({ id }: { id: string }) {
   const [submitCommit, setSubmitCommit] = useState<DateForComment[]>([]);
 
   const [activeTab, setActiveTab] = useState("Overview");
@@ -31,30 +31,41 @@ export default function CourseTabs() {
   } = useForm<DateForComment>();
 
   useEffect(() => {
-    const commitMessage = localStorage.getItem("commitMessage");
-    setSubmitCommit(commitMessage ? JSON.parse(commitMessage) : []);
-  }, []);
+    const allComments = JSON.parse(localStorage.getItem("courseComments") || "[]") as DateForComment[];
+    setSubmitCommit(allComments.filter((c) => c.id === id));
+  }, [id]);
 
   useEffect(() => {
     setSubmitCommit(getCommit());
   }, []);
 
   function onSubmit(data: Omit<DateForComment, "date">) {
+    const allComments: DateForComment[] = JSON.parse(localStorage.getItem("courseComments") || "[]");
+
     const printDate: DateForComment = {
       ...data,
+      id: id,
       date: new Date().toLocaleDateString(),
     };
-    const newCommit = [...submitCommit, printDate];
-    setSubmitCommit(newCommit);
-    localStorage.setItem("commitMessage", JSON.stringify(newCommit));
+
+    const updatedAll = [...allComments, printDate];
+    localStorage.setItem("courseComments", JSON.stringify(updatedAll));
+
+    setSubmitCommit(updatedAll.filter((comment) => comment.id === id));
     reset();
     toast.success("Add comment successfully");
   }
 
-  function handleDelete(indexToDelete: number) {
-    const updatedCommit = submitCommit.filter((_, index) => index !== indexToDelete);
-    setSubmitCommit(updatedCommit);
-    localStorage.setItem("commitMessage", JSON.stringify(updatedCommit));
+  function handleDelete(indexInFiltered: number) {
+    const allComments: DateForComment[] = JSON.parse(localStorage.getItem("courseComments") || "[]");
+
+    const filteredForCourse = allComments.filter((c) => c.id === id);
+    const commentToDelete = filteredForCourse[indexInFiltered];
+
+    const updatedAll = allComments.filter((c) => c !== commentToDelete);
+    localStorage.setItem("courseComments", JSON.stringify(updatedAll));
+
+    setSubmitCommit(updatedAll.filter((c) => c.id === id));
     toast.success("Delete comment successfully");
   }
 
@@ -189,45 +200,47 @@ export default function CourseTabs() {
               <div>
                 {submitCommit && (
                   <div>
-                    {submitCommit.map((comment, index) => (
-                      <div key={index} className="flex gap-3 py-2">
-                        <div className="h-10 w-10 rounded-full bg-gray-300 "></div>
-                        <div className="w-full  ">
-                          <div className="flex justify-between w-full">
-                            <div>
-                              <p className="font-semibold">{comment.name}</p>
+                    {submitCommit
+                      .filter((comment) => comment.id === id)
+                      .map((comment, index) => (
+                        <div key={index} className="flex gap-3 py-2">
+                          <div className="h-10 w-10 rounded-full bg-gray-300 "></div>
+                          <div className="w-full">
+                            <div className="flex justify-between w-full">
+                              <div>
+                                <p className="font-semibold">{comment.name}</p>
+                              </div>
+                              <div className="text-gray-600 text-sm">
+                                {comment.date ? (
+                                  (() => {
+                                    const date = new Date(comment.date);
+                                    const month = date.toLocaleDateString("en-US", { month: "long" });
+                                    const day = String(date.getDate()).padStart(2, "0");
+                                    const year = date.getFullYear();
+                                    return (
+                                      <p className="text-gray-600">
+                                        {month} {day}, {year}
+                                      </p>
+                                    );
+                                  })()
+                                ) : (
+                                  <p>error</p>
+                                )}
+                              </div>
                             </div>
-                            <div className="text-gray-600 text-sm">
-                              {comment.date ? (
-                                (() => {
-                                  const date = new Date(comment.date);
-                                  const month = date.toLocaleDateString("en-US", { month: "long" });
-                                  const day = String(date.getDate()).padStart(2, "0");
-                                  const year = date.getFullYear();
-                                  return (
-                                    <p className="text-gray-600">
-                                      {month} {day} , {year}
-                                    </p>
-                                  );
-                                })()
-                              ) : (
-                                <p>error</p>
-                              )}
-                            </div>
-                          </div>
 
-                          <p className="text-gray-600">{comment.comment}</p>
-                          <div className="flex items-center justify-between">
-                            <button className="flex items-center pt-2 gap-2 text-gray-600 cursor-pointer">
-                              <BsReply className="text-red-500" /> Reply
-                            </button>
-                            <button onClick={() => handleDelete(index)} className="cursor-pointer text-2xl text-red-500">
-                              <TiDelete />
-                            </button>
+                            <p className="text-gray-600">{comment.comment}</p>
+                            <div className="flex items-center justify-between">
+                              <button className="flex items-center pt-2 gap-2 text-gray-600 cursor-pointer">
+                                <BsReply className="text-red-500" /> Reply
+                              </button>
+                              <button onClick={() => handleDelete(index)} className="cursor-pointer text-2xl text-red-500">
+                                <TiDelete />
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
                   </div>
                 )}
               </div>
