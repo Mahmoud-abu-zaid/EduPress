@@ -204,13 +204,11 @@ export default function CourseTabs({ id }: { id: string }) {
                       .filter((comment) => comment.id === id)
                       .map((comment, index) => (
                         <div key={index} className="flex gap-3 py-2">
-                          <div className="h-10 w-10 rounded-full bg-gray-300 "></div>
-                          <div className="w-full">
-                            <div className="flex justify-between w-full">
-                              <div>
-                                <p className="font-semibold">{comment.name}</p>
-                              </div>
-                              <div className="text-gray-600 text-sm">
+                          <div className="h-10 w-10 min-w-[40px] min-h-[40px] rounded-full bg-gray-300 flex-shrink-0"></div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex justify-between items-start">
+                              <p className="font-semibold">{comment.name}</p>
+                              <div className="text-gray-600 text-sm flex-shrink-0">
                                 {comment.date ? (
                                   (() => {
                                     const date = new Date(comment.date);
@@ -218,7 +216,7 @@ export default function CourseTabs({ id }: { id: string }) {
                                     const day = String(date.getDate()).padStart(2, "0");
                                     const year = date.getFullYear();
                                     return (
-                                      <p className="text-gray-600">
+                                      <p className="text-gray-600 whitespace-nowrap">
                                         {month} {day}, {year}
                                       </p>
                                     );
@@ -228,10 +226,9 @@ export default function CourseTabs({ id }: { id: string }) {
                                 )}
                               </div>
                             </div>
-
-                            <p className="text-gray-600">{comment.comment}</p>
-                            <div className="flex items-center justify-between">
-                              <button className="flex items-center pt-2 gap-2 text-gray-600 cursor-pointer">
+                            <p className="text-gray-600 break-words whitespace-pre-wrap mt-1">{comment.comment}</p>
+                            <div className="flex items-center justify-between mt-2">
+                              <button className="flex items-center gap-2 text-gray-600 cursor-pointer">
                                 <BsReply className="text-red-500" /> Reply
                               </button>
                               <button onClick={() => handleDelete(index)} className="cursor-pointer text-2xl text-red-500">
@@ -257,8 +254,8 @@ export default function CourseTabs({ id }: { id: string }) {
             <h3 className="text-2xl">Leave a comment</h3>
             <p>Your email address will not be published. Required fields are marked *</p>
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-2 w-full">
-              <div className="flex gap-2 mt-2 w-full">
-                <div className="w-full">
+              <div className="md:flex gap-2 mt-2 w-full">
+                <div className="pb-2 w-full">
                   <input
                     type="text"
                     placeholder="Name*"

@@ -31,8 +31,8 @@ export default async function BlogDetails({ params }: { params: Promise<{ id: st
           <IoIosArrowForward />
           <p>{blog.title}</p>
         </div>
-        <div className="flex justify-center">
-          <div className=" flex flex-col gap-5 py-4 pt-6">
+        <div className="flex justify-center gap-6 py-6">
+          <div className="flex flex-col lg:w-[75%] w-[90%] gap-3 ">
             <h1 className="text-4xl">{blog.title}</h1>
             <div className="flex items-center gap-3 ">
               <div className="flex items-center gap-2 ">
@@ -47,7 +47,7 @@ export default async function BlogDetails({ params }: { params: Promise<{ id: st
               </div>
             </div>
             <div>
-              <Image className="w-full" src={blog.img} alt={blog.title} width={650} height={500} />
+              <Image className=" w-full rounded-b-[5%] " src={blog.img} alt={blog.title} width={650} height={500} />
             </div>
             <div>
               <p>
@@ -62,7 +62,7 @@ export default async function BlogDetails({ params }: { params: Promise<{ id: st
                 faucibus bibendum augue id cras purus.
               </p>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center flex-wrap">
               <p>Tags :</p>
               {["Free couses", "Marketing", "Idea", "LMS", "LearnPress", "Instructor"].map((tags) => (
                 <div key={tags} className="p-1 py-3 ">
@@ -81,6 +81,30 @@ export default async function BlogDetails({ params }: { params: Promise<{ id: st
               ))}
             </div>
             <FormComment id={blog.id} />
+          </div>
+          <div className="hidden lg:block w-[17.5%]">
+            <aside className="w-full py-4 space-y-6">
+              <div>
+                <h3 className="font-semibold mb-2">Category</h3>
+                {["Commercial", "Office", "Shop", "Educate", "Academy", "Single family home"].map((category) => (
+                  <div key={category} className="flex items-center justify-between text-gray-600">
+                    <p>{category}</p>
+                    <p>15</p>
+                  </div>
+                ))}
+              </div>
+
+              <div>
+                <h3 className="font-semibold mb-2">Tags</h3>
+                <div className="flex flex-wrap">
+                  {["Free couses", "Marketing", "Idea", "LMS", "LearnPress", "Instructor"].map((tags) => (
+                    <div key={tags} className="p-1 py-3">
+                      <span className="p-2 border-[1px] border-gray-400 rounded text-gray-500 cursor-pointer hover:border-gray-800 hover:text-gray-900">{tags}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </div>

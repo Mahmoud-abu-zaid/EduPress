@@ -56,7 +56,7 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
     <>
       <FadeInOnScroll>
         <div className="flex justify-center  gap-6">
-          <div className="flex flex-col  w-[75%] gap-3">
+          <div className="flex flex-col lg:w-[75%] w-[90%] gap-3">
             <div className="flex sm:justify-between justify-center flex-wrap items-center py-5 px-5 w-full gap-5">
               <div>
                 <h3 className="text-xl">All Courses</h3>
