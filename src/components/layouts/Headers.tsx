@@ -61,7 +61,7 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <div className="hidden lg:flex items-center gap-2 text-sm">
-            <Link href="/login" className="text-sm font-medium hover:text-orange-500 transition-all flex items-center gap-1">
+            <Link href="/Authentication" className="text-sm font-medium hover:text-orange-500 transition-all flex items-center gap-1">
               Login / Register
             </Link>
           </div>

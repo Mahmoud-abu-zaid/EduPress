@@ -1,5 +1,5 @@
-import BlogList from "@/features/Blog/components/BlogList";
-import getBlog from "@/features/Blog/services/getBlog";
+import BlogList from "@/modules/Blog/components/BlogList";
+import getBlog from "@/modules/Blog/services/getBlog";
 
 export default async function Blog() {
   const data = await getBlog();

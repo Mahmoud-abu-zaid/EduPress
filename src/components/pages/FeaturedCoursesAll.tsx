@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { IoIosTime } from "react-icons/io";
-import { DataCorurses } from "@/features/AllCourses/types/typeCourses";
+import { DataCorurses } from "@/modules/AllCourses/types/typeCourses";
 import BtnLinkAll from "@/components/ui/BtnLinkAll";
 import { RiGraduationCapFill } from "react-icons/ri";
 import TitleDescription from "@/components/ui/TitleDescription";

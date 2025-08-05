@@ -1,5 +1,5 @@
 import FormComment from "@/components/ui/FormComment";
-import { BlogType } from "@/features/Blog/types/type";
+import { BlogType } from "@/modules/Blog/types/type";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";

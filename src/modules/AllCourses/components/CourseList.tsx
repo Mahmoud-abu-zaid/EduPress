@@ -7,7 +7,7 @@ import { IoSearch } from "react-icons/io5";
 import { IoIosTime } from "react-icons/io";
 import { TbLayoutList } from "react-icons/tb";
 import { HiMiniQueueList } from "react-icons/hi2";
-import { DataCorurses } from "@/features/AllCourses/types/typeCourses";
+import { DataCorurses } from "@/modules/AllCourses/types/typeCourses";
 import { RiGraduationCapFill } from "react-icons/ri";
 import { MdFileCopy, MdQuiz } from "react-icons/md";
 import { ImStatsBars } from "react-icons/im";

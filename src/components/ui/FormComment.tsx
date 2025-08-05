@@ -5,7 +5,7 @@ import { BsReply } from "react-icons/bs";
 import { TiDelete } from "react-icons/ti";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-import { DateForComment } from "@/features/CourseTabs/types/courseTabsTypes";
+import { DateForComment } from "@/modules/CourseTabs/types/courseTabsTypes";
 
 const getComment = (): DateForComment[] => JSON.parse(localStorage.getItem("blogComments") || "[]");
 

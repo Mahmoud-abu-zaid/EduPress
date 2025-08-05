@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import BtnLinkAll from "../ui/BtnLinkAll";
 import { IoIosTime } from "react-icons/io";
-import { DataCorurses } from "@/features/AllCourses/types/typeCourses";
+import { DataCorurses } from "@/modules/AllCourses/types/typeCourses";
 import { RiGraduationCapFill } from "react-icons/ri";
 import TitleDescription from "../ui/TitleDescription";
 import FadeInOnScroll from "../animation/FadeInOnScroll";

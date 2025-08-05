@@ -1,5 +1,5 @@
-import CourseList from "@/features/AllCourses/components/CourseList";
-import { getCourses } from "@/features/AllCourses/services/getCourses";
+import CourseList from "@/modules/AllCourses/components/CourseList";
+import { getCourses } from "@/modules/AllCourses/services/getCourses";
 export const metadata = {
   title: "All Courses | EduPress - Explore Our Full Course Library",
   description: "Discover all courses on EduPress. Explore a wide range of topics including development, design, marketing, and more. Learn at your own pace from top instructors.",

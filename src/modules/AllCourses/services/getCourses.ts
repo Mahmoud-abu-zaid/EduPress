@@ -1,4 +1,4 @@
-import { DataCorurses } from "@/features/AllCourses/types/typeCourses";
+import { DataCorurses } from "@/modules/AllCourses/types/typeCourses";
 
 export async function getCourses(): Promise<DataCorurses[]> {
   const res = await fetch("https://edupress-neon.vercel.app/json/allCourses.json", {

@@ -3,11 +3,11 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ImStatsBars } from "react-icons/im";
 import BtnLink from "@/components/ui/BtnLink";
-import { DataCorurses } from "@/features/AllCourses/types/typeCourses";
+import { DataCorurses } from "@/modules/AllCourses/types/typeCourses";
 import { MdFileCopy, MdQuiz } from "react-icons/md";
 import { RiGraduationCapFill } from "react-icons/ri";
 import { IoIosArrowForward, IoIosTime } from "react-icons/io";
-import CourseTabs from "@/features/CourseTabs/components/CourseTabs";
+import CourseTabs from "@/modules/CourseTabs/components/CourseTabs";
 import FadeInOnScroll from "@/components/animation/FadeInOnScroll";
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
