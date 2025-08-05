@@ -1,11 +1,11 @@
 "use client";
 
-import { DateForComment } from "@/features/CourseTabs/types/courseTabsTypes";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { BsReply } from "react-icons/bs";
 import { TiDelete } from "react-icons/ti";
-import { toast } from "react-toastify";
+import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
+import { DateForComment } from "@/features/CourseTabs/types/courseTabsTypes";
 
 const getComment = (): DateForComment[] => JSON.parse(localStorage.getItem("blogComments") || "[]");
 
@@ -138,16 +138,13 @@ export default function CommentComponent({ id }: { id: string }) {
                   placeholder="Comment"
                   {...register("comment", {
                     required: "Enter your message",
-                    maxLength: {
-                      value: 100,
-                      message: "The maximum character limit is 100 char",
-                    },
+
                     minLength: {
                       value: 20,
                       message: "The minimum number of characters is 20",
                     },
                   })}
-                  className=" border-[1px] border-gray-400 px-1 py-1 rounded-md w-full"
+                  className=" border-[1px] border-gray-400 px-1 py-1 rounded-md w-full h-50"
                 ></textarea>
                 <p className="text-red-500 text-sm">{typeof errors?.comment?.message === "string" ? errors?.comment?.message : ""}</p>
                 <div className="flex items-center gap-1">

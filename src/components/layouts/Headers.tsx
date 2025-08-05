@@ -15,9 +15,9 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState(false);
 
   const nestedNav = [
-    { path: "/contact", label: "Contact" },
-    { path: "/about", label: "About Us" },
-    { path: "/faq", label: "FAQ" },
+    { path: "/Contect", label: "Contact" },
+    { path: "/About", label: "About Us" },
+    { path: "/Faqs", label: "FAQs" },
   ];
   const nav = [
     { path: "/", label: "Home" },

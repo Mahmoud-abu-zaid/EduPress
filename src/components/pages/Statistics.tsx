@@ -15,7 +15,7 @@ export default function Statistics() {
   useEffect(() => {
     if (!inView) return;
 
-    const steps = Math.ceil((duration / 1000) * frameRate);
+    const steps = Math.ceil((duration / 500) * frameRate);
     let currentStep = 0;
 
     const interval = setInterval(() => {

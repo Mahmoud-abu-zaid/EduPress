@@ -1,5 +1,5 @@
 import Image from "next/image";
-import BtnLink from "./BtnLink";
+import BtnLink from "../ui/BtnLink";
 import FadeInOnScroll from "../animation/FadeInOnScroll";
 
 export default function BannerExplorerCourse() {
