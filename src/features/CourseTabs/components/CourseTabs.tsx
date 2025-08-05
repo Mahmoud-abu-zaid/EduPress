@@ -167,10 +167,10 @@ export default function CourseTabs({ id }: { id: string }) {
           )}
           {activeTab === "FAQs" && (
             <div className="flex flex-col gap-3">
-              <FAQs />
-              <FAQs />
-              <FAQs />
-              <FAQs />
+              <FAQs background="bg-white" taxtColor="text-black" />
+              <FAQs background="bg-white" taxtColor="text-black" />
+              <FAQs background="bg-white" taxtColor="text-black" />
+              <FAQs background="bg-white" taxtColor="text-black" />
             </div>
           )}
           {activeTab === "Reviews" && (

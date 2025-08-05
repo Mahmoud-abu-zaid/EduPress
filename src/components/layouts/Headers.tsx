@@ -61,12 +61,8 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <div className="hidden lg:flex items-center gap-2 text-sm">
-            <Link href="/login" className="hover:text-orange-500">
-              Login
-            </Link>
-            <span>/</span>
-            <Link href="/register" className="hover:text-orange-500">
-              Register
+            <Link href="/login" className="text-sm font-medium hover:text-orange-500 transition-all flex items-center gap-1">
+              Login / Register
             </Link>
           </div>
           <IoSearchCircleOutline className="text-3xl text-[#ff782d]" />
