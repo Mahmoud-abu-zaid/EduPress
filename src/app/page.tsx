@@ -1,11 +1,11 @@
 import HeroHome from "@/components/pages/HeroHome";
-import Categories from "@/components/pages/Categories";
-import FeaturedCoursesAll from "@/components/pages/FeaturedCoursesAll";
-import BannerExplorerCourse from "@/components/pages/BannerExplorerCourse";
-import Statistics from "@/components/pages/Statistics";
-import GrowSkils from "@/components/pages/GrowSkils";
 import FeedBacks from "@/components/pages/Feedbacks";
+import GrowSkils from "@/components/pages/GrowSkils";
+import Categories from "@/components/pages/Categories";
+import Statistics from "@/components/pages/Statistics";
 import LatestArticles from "@/components/pages/LatestArticles";
+import FeaturedCoursesAll from "@/components/pages/FeaturedCoursesAll";
+
 
 export const metadata = {
   title: "EduPress | Learn Smarter, Grow Faster",
@@ -40,14 +40,15 @@ export default function Home() {
   return (
     <>
       <HeroHome />
-
-      <Categories />
-      <FeaturedCoursesAll />
-      <BannerExplorerCourse />
-      <Statistics />
-      <GrowSkils />
-      <FeedBacks />
-      <LatestArticles />
+      <div className="container mx-auto px-4">
+        <Categories />
+        <FeaturedCoursesAll />
+        {/* <BannerExplorerCourse /> */}
+        <Statistics />
+        <GrowSkils />
+        <FeedBacks />
+        <LatestArticles />
+      </div>
     </>
   );
 }

@@ -12,7 +12,7 @@ export default function HeroHome() {
   return (
     <>
       <div className="heroHome ">
-        <div className="flex justify-between items-center gap-5 text-black">
+        <div className=" flex justify-between items-center gap-5 text-black">
           <div className="p-3">
             <FadeInOnScroll>
               <h2 className={`text-4xl font-semibold mb-5 ${exo2.className}`}>
