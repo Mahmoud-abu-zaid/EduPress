@@ -37,9 +37,9 @@ export default function Categories() {
                 key={index}
                 className="flex flex-col items-center justify-center w-[234px] h-[234px] shadow rounded-2xl cursor-pointer transform transition-transform duration-70 hover:scale-105 hover:shadow-lg"
               >
-                <i className="text-3xl text-amber-500 ">{categorie.icons}</i>
-                <p className="text-[20px] font-semibold py-3">{categorie.title}</p>
-                <p className="font-extralight">{categorie.coruses}</p>
+                <i className="text-3xl text-main-color">{categorie.icons}</i>
+                <p className="text-[20px] font-semibold py-3 text-black-text">{categorie.title}</p>
+                <p className="font-extralight text-second-color-text">{categorie.coruses}</p>
               </div>
             ))}
           </div>

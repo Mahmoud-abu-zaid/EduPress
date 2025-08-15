@@ -12,7 +12,7 @@ export default function HeroHome() {
   return (
     <>
       <div className="heroHome ">
-        <div className=" flex justify-between items-center gap-5 text-black">
+        <div className=" flex justify-between items-center gap-5 text-black-text">
           <div className="p-3">
             <FadeInOnScroll>
               <h2 className={`text-4xl font-semibold mb-5 ${exo2.className}`}>
@@ -20,7 +20,7 @@ export default function HeroHome() {
                 <br />
                 {t("Online Course")}
               </h2>
-              <p>
+              <p className="text-second-color-text">
                 We denounce with righteous indignation and dislike men who are <br />
                 so beguiled and demoralized that cannot trouble.
               </p>

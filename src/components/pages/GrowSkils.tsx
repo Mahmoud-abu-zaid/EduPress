@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function GrowSkils() {
   return (
     <>
-      <div className="flex justify-center items-center flex-wrap ">
+      <div className="flex justify-evenly items-center flex-wrap ">
         <div className="md:flex hidden">
           <Image src="/img/Vector (3).png" alt="" height={450} width={400} className="p-6" />
         </div>

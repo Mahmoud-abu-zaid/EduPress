@@ -31,9 +31,16 @@
 }
 
 @theme {
-  --color-black: hsl(0, 0%, 0%);
-  --color-white: hsl(0 0% 100%);
+  --color-black-text: hsl(0, 0%, 0%);
+  --color-black-bg: hsl(0, 0%, 0%);
+  --color-white-text: hsl(0 0% 100%);
+  --color-white-bg: hsl(0 0% 100%);
+  --color-hover-butten-gray: hsl(0, 0%, 95%);
   --color-main-color: hsl(21, 100%, 59%);
+  --color-hover-butten-main-color: hsl(21, 100%, 47%);
   --color-second-color-text: hsl(216, 15%, 34%);
-  --color-third-color: hsl(216, 15%, 34%);
+  --color-third-color: hsl(218, 12%, 64%);
+  --color-fourth-color-gray-bg:hsl(220, 13%, 91%);
+  --color-red-text: hsl(357, 96%, 58%);
+  --color-green-text: hsl(144, 100%, 39%);
 }
