@@ -22,48 +22,48 @@ export default async function LatestArticles() {
     <>
       <div>
         <FadeInOnScroll>
-          <div className="flex items-center justify-between flex-wrap py-9 px-7">
-            <TitleDescription title="Latest articles" description="Explore our Free Acticles" />
-            <BtnLinkAll path="" title="All articles" />
+          <div className="flex items-center justify-between flex-wrap py-9">
+            <TitleDescription title="Featured courses" description="Explore our Popular Courses" />
+            <BtnLinkAll path="AllCourses" title="All Courses" />
           </div>
-          <div className="max-w-screen-xl mx-auto pb-5 px-5 sm:p-10 md:pb-16">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+          <div className="max-w-screen-xl mx-auto pb-5  md:pb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
               {data.map((course) => (
-                <div key={course.id} className="rounded shadow-lg flex flex-col">
+                <div key={course.id} className="bg-color-white rounded shadow-lg flex flex-col hover:scale-105 transition-transform duration-300 ease-in-out">
                   <Link href={`/CourseDetails/${course.id}`}>
                     <div className="relative">
                       <Image src={course.img} alt={course.title} className="w-full" width={400} height={250} />
-                      <div className="text-xs absolute top-0 left-3 bg-black px-4 py-2 text-white mt-3 mr-3 transition duration-500 ease-in-out rounded-lg">{course.Photography}</div>
-                      <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-20 rounded-t-[20px]"></div>
+                      <div className="text-xs absolute top-0 left-3 bg-color-black px-4 py-2 text-color-white mt-3 mr-3 transition duration-500 ease-in-out rounded-lg">{course.Photography}</div>
+                      <div className="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-20 rounded-t-[13px] sm:rounded-t-[25px] md:rounded-t-[18px]"></div>
                     </div>
                   </Link>
-                  <div className="px-6 py-4 mb-auto">
-                    <p className="text-gray-500 text-sm">By {course.by}</p>
-                    <Link href={`/CourseDetails/${course.id}`} className="font-medium text-lg hover:text-amber-500 transition duration-300 ease-in-out inline-block mb-2">
+                  <div className="px-3 py-4 mb-auto">
+                    <p className="text-second-color-text text-sm">By {course.by}</p>
+                    <Link href={`/CourseDetails/${course.id}`} className="font-medium sm:text-lg text-md  text-color-black hover:text-main-color transition duration-300 ease-in-out inline-block mb-2">
                       {course.title}
                     </Link>
                     <div className="flex gap-3 flex-wrap">
-                      <p className="ml-1 flex items-center gap-2 text-gray-400">
-                        <IoIosTime className="text-amber-500" /> {course.time} Week
+                      <p className="ml-1 flex items-center gap-2 text-third-color">
+                        <IoIosTime className="text-main-color" /> {course.time} Week
                       </p>
-                      <p className="ml-1 flex items-center gap-2 text-gray-400">
-                        <RiGraduationCapFill className="text-amber-500" /> {course.students} Students
+                      <p className="ml-1 flex items-center gap-2 text-third-color">
+                        <RiGraduationCapFill className="text-main-color" /> {course.students} Students
                       </p>
                     </div>
                   </div>
-                  <hr className="mx-5 text-gray-300" />
+                  <hr className="mx-5 text-third-color" />
                   <div className="flex justify-between items-center flex-wrap px-6 py-3">
                     <div className=" flex flex-row items-center gap-4 ">
-                      <span className=" text-xs  mr-1 flex flex-row items-center text-gray-500">
+                      <span className=" text-xs  mr-1 flex flex-row items-center text-third-color">
                         <del>{course.priceBefore}</del>
                       </span>
                       <div>
-                        <span className=" text-sm flex flex-row items-center text-red-500">{course.priceAfter}</span>
-                        <span className=" text-sm flex flex-row items-center text-green-500">{course.priceFree}</span>
+                        <span className=" text-sm flex flex-row items-center text-red-text">{course.priceAfter}</span>
+                        <span className=" text-sm flex flex-row items-center text-green-text">{course.priceFree}</span>
                       </div>
                     </div>
                     <div>
-                      <Link href={`/CourseDetails/${course.id}`} className="text-sm">
+                      <Link href={`/CourseDetails/${course.id}`} className="text-sm text-color-black">
                         View More
                       </Link>
                     </div>

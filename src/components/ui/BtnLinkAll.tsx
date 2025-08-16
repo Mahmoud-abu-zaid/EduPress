@@ -4,7 +4,7 @@ export default function BtnLinkAll({ path, title }: { path: string; title: strin
   return (
     <>
       <div className="my-6">
-        <Link className="border-[1px] border-second-color-text py-2 px-4 bg-white-bg hover:bg-hover-butten-gray duration-300 text-black-text rounded-3xl" href={path}>
+        <Link className="border-[1px] border-second-color-text py-2 px-4 bg-color-white hover:bg-hover-butten-gray duration-300 text-color-black rounded-3xl" href={path}>
           {title}
         </Link>
       </div>

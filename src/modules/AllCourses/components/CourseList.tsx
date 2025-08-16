@@ -1,17 +1,15 @@
 "use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { IoSearch } from "react-icons/io5";
+import { FaList } from "react-icons/fa6";
 import { IoIosTime } from "react-icons/io";
-import { TbLayoutList } from "react-icons/tb";
-import { HiMiniQueueList } from "react-icons/hi2";
-import { DataCorurses } from "@/modules/AllCourses/types/typeCourses";
-import { RiGraduationCapFill } from "react-icons/ri";
-import { MdFileCopy, MdQuiz } from "react-icons/md";
+import { useEffect, useState } from "react";
 import { ImStatsBars } from "react-icons/im";
+import { IoGrid, IoSearch } from "react-icons/io5";
+import { MdFileCopy, MdQuiz } from "react-icons/md";
+import { RiGraduationCapFill } from "react-icons/ri";
 import FadeInOnScroll from "@/components/animation/FadeInOnScroll";
+import { DataCorurses } from "@/modules/AllCourses/types/typeCourses";
 
 export default function CourseList({ data }: { data: DataCorurses[] }) {
   const [search, setSearch] = useState("");
@@ -19,6 +17,7 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
   const [sliderIndex, setSliderIndex] = useState(1);
 
   const [isGridView, setIsGridView] = useState(true);
+
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
   const filteredData = data.filter((course) => {
@@ -55,24 +54,24 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
   return (
     <>
       <FadeInOnScroll>
-        <div className="flex justify-center  gap-6">
+        <div className=" container mx-auto sm:px-8 px-4 flex justify-center gap-6">
           <div className="flex flex-col lg:w-[75%] w-[90%] gap-3">
             <div className="flex sm:justify-between justify-center flex-wrap items-center py-5 px-5 w-full gap-5">
               <div>
-                <h3 className="text-xl">All Courses</h3>
+                <h3 className="text-xl text-color-black">All Courses</h3>
               </div>
               <div className="flex items-center gap-2">
-                <div className="flex items-center gap-2 border-b-4 border-gray-700 rounded-2xl px-2 py-1">
+                <div className="flex items-center gap-2  px-1 py-1 border-b-2 border-color-black">
                   <input type="text" placeholder="Search courses..." className=" px-2 py-2 outline-0" value={search} onChange={(e) => setSearch(e.target.value)} />
                   <IoSearch />
                 </div>
                 <div className="hidden items-center gap-2 sm:flex">
                   <button onClick={() => setIsGridView(true)} className={`px-2 py-1 rounded-md cursor-pointer text-2xl ${isGridView ? "text-amber-400" : "text-gray-700"}`}>
-                    <HiMiniQueueList />
+                    <IoGrid />
                   </button>
 
                   <button onClick={() => setIsGridView(false)} className={`px-2 py-1 rounded-md cursor-pointer text-2xl ${!isGridView ? "text-amber-400" : "text-gray-700"}`}>
-                    <TbLayoutList />
+                    <FaList />
                   </button>
                 </div>
               </div>
@@ -88,42 +87,45 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
             ) : (
               <div className={`grid gap-10 justify-center pb-8 ${isGridView ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"}`}>
                 {paginatedData.map((course) => (
-                  <div key={course.id} className={`rounded-3xl shadow-lg overflow-hidden flex  ${isGridView ? "flex-col" : "flex-col sm:flex-row"}`}>
+                  <div
+                    key={course.id}
+                    className={`bg-color-white hover:scale-105 transition duration-300 ease-in-out rounded-3xl shadow-lg overflow-hidden flex  ${isGridView ? "flex-col" : "flex-col sm:flex-row"}`}
+                  >
                     <Link href={`/CourseDetails/${course.id}`} className={isGridView ? "" : "w-full sm:w-1/3"}>
                       <div className="relative h-full">
                         <Image src={course.img} alt={course.title} className={`w-full h-full`} width={400} height={250} />
-                        <div className="text-xs absolute top-0 left-3 bg-black px-4 py-2 text-white mt-3 mr-3 rounded-lg">{course.Photography}</div>
-                        <div className={`absolute inset-0 bg-gray-800 opacity-20 hover:opacity-0 transition-opacity ease-in ${isGridView ? "" : " rounded-tr-2xl"}`}></div>
+                        <div className="text-xs absolute top-0 left-3 bg-black px-4 py-2 text-color-white mt-3 mr-3 rounded-lg">{course.Photography}</div>
+                        <div className={`absolute inset-0 bg-color-black opacity-20 hover:opacity-0 transition-opacity ease-in ${isGridView ? "" : " rounded-tr-2xl"}`}></div>
                       </div>
                     </Link>
 
-                    <div className={`flex flex-col justify-between ${isGridView ? "px-6 py-4" : "p-4 w-full sm:w-2/3"}`}>
+                    <div className={`flex flex-col justify-between sm:p-4 p-3  ${isGridView ? "py-4" : "w-full sm:w-2/3"}`}>
                       <div>
                         <p className="text-gray-500 text-sm">By {course.by}</p>
-                        <Link href={`/CourseDetails/${course.id}`} className="font-medium text-lg hover:text-amber-500 transition duration-300 inline-block mb-2">
+                        <Link href={`/CourseDetails/${course.id}`} className="font-medium text-md sm:text-lg text-color-black hover:text-main-color transition duration-300 inline-block mb-2">
                           {course.title}
                         </Link>
 
                         <div className="flex gap-3 flex-wrap mb-2">
-                          <p className="ml-1 flex items-center gap-2 text-gray-400">
-                            <IoIosTime className="text-amber-500" /> {course.time} Week
+                          <p className="ml-1 flex items-center gap-2 text-third-color sm:text-md text-sm">
+                            <IoIosTime className="text-main-color" /> {course.time} Week
                           </p>
-                          <p className="ml-1 flex items-center gap-2 text-gray-400">
-                            <RiGraduationCapFill className="text-amber-500" /> {course.students} Students
+                          <p className="ml-1 flex items-center gap-2 text-third-color sm:text-md text-sm">
+                            <RiGraduationCapFill className="text-main-color" /> {course.students} Students
                           </p>
                           {isGridView === false && (
-                            <div className="flex items-center gap-2 text-gray-400 flex-wrap">
-                              <p className="ml-1 flex items-center gap-2 text-gray-400 ">
-                                <MdQuiz className="text-amber-500" />
+                            <div className="sm:flex hidden items-center gap-2 text-third-color flex-wrap">
+                              <p className="ml-1 flex items-center gap-2 text-third-color sm:text-md text-sm">
+                                <MdQuiz className="text-main-color" />
                                 {course.Quizzes} Quizzes
                               </p>
 
-                              <p className="ml-1 flex items-center gap-2 text-gray-400 ">
-                                <ImStatsBars className="text-amber-500" /> {course.levels}
+                              <p className="ml-1 flex items-center gap-2 text-third-color sm:text-md text-sm">
+                                <ImStatsBars className="text-main-color" /> {course.levels}
                               </p>
 
-                              <p className="ml-1 flex items-center gap-2 text-gray-400 ">
-                                <MdFileCopy className="text-amber-500" />
+                              <p className="ml-1 flex items-center gap-2 text-third-color sm:text-md text-sm">
+                                <MdFileCopy className="text-main-color" />
                                 {course.Lessons} Lessons
                               </p>
                             </div>
@@ -131,17 +133,17 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
                         </div>
                       </div>
 
-                      <div className="flex justify-between items-center pt-4 border-t border-gray-300 flex-wrap gap-4">
+                      <div className="flex justify-between items-center pt-4 border-t border-fourth-color-gray-bg flex-wrap gap-4">
                         <div className="flex flex-row gap-4">
-                          <span className="text-xs text-gray-500">
+                          <span className="text-xs text-second-color-text">
                             <del>{course.priceBefore}</del>
                           </span>
                           <div className="flex flex-col">
-                            <span className="text-sm text-red-500">{course.priceAfter}</span>
-                            <span className="text-sm text-green-500">{course.priceFree}</span>
+                            <span className="text-sm text-red-text">{course.priceAfter}</span>
+                            <span className="text-sm text-green-text">{course.priceFree}</span>
                           </div>
                         </div>
-                        <Link href={`/CourseDetails/${course.id}`} className="text-sm whitespace-nowrap">
+                        <Link href={`/CourseDetails/${course.id}`} className="text-sm whitespace-nowrap text-color-black">
                           View More
                         </Link>
                       </div>
@@ -154,8 +156,13 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
               {Array.from({ length: totalPages }, (_, index) => (
                 <button
                   key={index}
-                  onClick={() => setSliderIndex(index + 1)}
-                  className={`px-5 py-3 cursor-pointer rounded-4xl shadow ${sliderIndex === index + 1 ? "bg-black text-white" : "bg-gray-200 text-gray-700"}`}
+                  onClick={() => {
+                    setSliderIndex(index + 1);
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }}
+                  className={`px-5 py-3 cursor-pointer rounded-4xl shadow hover:bg-color-black hover:text-color-white transition duration-300 ${
+                    sliderIndex === index + 1 ? "bg-color-black text-color-white" : "bg-hover-butten-gray text-second-color-text"
+                  }`}
                 >
                   {index + 1}
                 </button>
@@ -163,8 +170,8 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
             </div>
           </div>
 
-          <div className="hidden lg:block p-4  w-[18%]">
-            <aside className="w-full py-4 space-y-6">
+          <div className="hidden lg:block p-4 w-[25%]">
+            <aside className="w-full py-4 space-y-6 sticky top-0 hover:max-h-screen hover:overflow-y-auto ">
               <div>
                 <h3 className="font-semibold mb-2">Course Category</h3>
                 {["Commercial", "Office", "Shop", "Educate", "Academy", "Single family home", "Studio", "University"].map((item) => (

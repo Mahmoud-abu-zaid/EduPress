@@ -29,9 +29,9 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-white shadow-md">
+    <header className="bg-color-white shadow-md">
       <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 text-black text-2xl font-bold">
+        <Link href="/" className="flex items-center gap-3 text-color-black text-2xl font-bold">
           <Image src="/img/Screenshot 2025-06-07 093836.png" alt="EduPress Logo" width={40} height={40} />
           EduPress
         </Link>
@@ -39,16 +39,19 @@ export default function Header() {
         <ul className="hidden lg:flex items-center gap-6">
           {nav.map((li) => (
             <li key={li.label} className="relative group">
-              <Link href={li.path || "#"} className={clsx("text-sm font-medium hover:text-orange-500 transition-all flex items-center gap-1", pathname === li.path && "text-amber-500 font-semibold")}>
+              <Link
+                href={li.path || "#"}
+                className={clsx("text-sm font-medium text-color-black hover:text-main-color transition-all flex items-center gap-1", pathname === li.path && "text-main-color font-semibold")}
+              >
                 {li.label}
                 {li?.icon}
               </Link>
 
               {Array.isArray(li.nestedNav) && (
-                <ul className="absolute left-0 top-5 hidden group-hover:block bg-white shadow-lg rounded-md w-40 text-sm z-50">
+                <ul className="absolute left-0 top-5 hidden group-hover:block bg-color-white shadow-lg rounded-md w-40 text-sm z-50">
                   {li.nestedNav.map((nested) => (
                     <li key={nested.path}>
-                      <Link href={nested.path} className="block px-4 py-2 hover:bg-gray-100 text-black">
+                      <Link href={nested.path} className="block px-4 py-2 hover:bg-gray-100 text-color-black">
                         {nested.label}
                       </Link>
                     </li>
@@ -61,12 +64,12 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <div className="hidden lg:flex items-center gap-2 text-sm">
-            <Link href="/Authentication" className="text-sm font-medium hover:text-orange-500 transition-all flex items-center gap-1">
+            <Link href="/Authentication" className="text-sm font-medium hover:text-main-color transition-all flex items-center gap-1">
               Login / Register
             </Link>
           </div>
-          <IoSearchCircleOutline className="text-3xl text-[#ff782d]" />
-          <div className="lg:hidden text-2xl">
+          <IoSearchCircleOutline className="text-3xl text-main-color" />
+          <div className="lg:hidden text-2xl cursor-pointer">
             <CiMenuFries onClick={() => setShowMenu((prev) => !prev)} />
           </div>
         </div>
@@ -78,21 +81,21 @@ export default function Header() {
             {nav.map((li) => (
               <li key={li.label}>
                 <div className="flex justify-between items-center">
-                  <Link href={li.path} className={clsx("text-black text-base", pathname === li.path && "text-orange-500 font-semibold")}>
+                  <Link href={li.path} className={clsx("text-black text-base", pathname === li.path && "text-main-color font-semibold")}>
                     {li.label}
                   </Link>
                   {Array.isArray(li.nestedNav) && (
-                    <button onClick={() => setOpenDropdown((prev) => !prev)} className="text-xl">
+                    <button onClick={() => setOpenDropdown((prev) => !prev)} className="text-xl cursor-pointer">
                       <IoIosArrowDown />
                     </button>
                   )}
                 </div>
 
                 {Array.isArray(li.nestedNav) && openDropdown && (
-                  <ul className="ml-4 mt-2 flex flex-col gap-2">
+                  <ul className="mt-2 flex flex-col gap-2 py-1">
                     {li.nestedNav.map((nested) => (
                       <li key={nested.path}>
-                        <Link href={nested.path} className="text-gray-600 text-sm block">
+                        <Link href={nested.path} className="text-color-black text-sm block py-1">
                           {nested.label}
                         </Link>
                       </li>
@@ -103,11 +106,11 @@ export default function Header() {
             ))}
             <hr className="my-2" />
             <div className="flex gap-2 text-sm font-medium">
-              <Link href="/login" className="hover:text-orange-500">
+              <Link href="/login" className="hover:text-main-color">
                 Login
               </Link>
               <span>/</span>
-              <Link href="/register" className="hover:text-orange-500">
+              <Link href="/register" className="hover:text-main-color">
                 Register
               </Link>
             </div>

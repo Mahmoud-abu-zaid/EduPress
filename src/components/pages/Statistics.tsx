@@ -38,7 +38,7 @@ export default function Statistics() {
               {counts[i]}
               {(label === "Satisfaction rate" && " %") || (label === "Active Students" && " K+")}
             </h3>
-            <p className="font-semibold">{label}</p>
+            <p className="font-semibold text-color-black">{label}</p>
           </div>
         ))}
       </div>
