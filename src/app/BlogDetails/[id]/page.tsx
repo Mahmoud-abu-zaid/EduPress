@@ -24,30 +24,32 @@ export default async function BlogDetails({ params }: { params: Promise<{ id: st
   return (
     <>
       <div>
-        <div className="flex items-center gap-1 flex-wrap bg-gray-100 py-2 px-4 text-gray-500">
-          <Link href="/">Homepage</Link>
-          <IoIosArrowForward />
-          <Link href="/Blog">blog</Link>
-          <IoIosArrowForward />
-          <p>{blog.title}</p>
+        <div className="flex  items-center gap-1 flex-wrap bg-gray-100 py-2  text-gray-500 ">
+          <div className="container mx-auto md:px-15 sm:px-13 px-6 flex items-center gap-1">
+            <Link href="/">Homepage</Link>
+            <IoIosArrowForward />
+            <Link href="/Blog">blog</Link>
+            <IoIosArrowForward className="hidden sm:block" />
+            <p className="text-color-black hidden sm:block">{blog.title}</p>
+          </div>
         </div>
-        <div className="flex justify-center gap-6 py-6">
+        <div className="flex justify-center gap-6 py-6 container mx-auto sm:px-8 px-2">
           <div className="flex flex-col lg:w-[75%] w-[90%] gap-3 ">
-            <h1 className="text-4xl">{blog.title}</h1>
+            <h1 className="sm:text-2xl lg:text-4xl text-xl text-color-black">{blog.title}</h1>
             <div className="flex items-center gap-3 ">
               <div className="flex items-center gap-2 ">
                 <p className="flex items-center gap-2 ">
-                  <IoIosCalendar className="text-orange-400 text-xl font-bold" />
+                  <IoIosCalendar className="text-main-color text-xl font-bold" />
                   {blog.data}
                 </p>
                 <p className="flex items-center gap-2">
-                  <FaUser className="text-orange-400 text-md font-bold" />
+                  <FaUser className="text-main-color text-md font-bold" />
                   {blog.Photography}
                 </p>
               </div>
             </div>
             <div>
-              <Image className=" w-full rounded-b-[5%] " src={blog.img} alt={blog.title} width={650} height={500} />
+              <Image className=" w-full rounded-b-[5%]" src={blog.img} alt={blog.title} width={650} height={500} />
             </div>
             <div>
               <p>
@@ -66,7 +68,7 @@ export default async function BlogDetails({ params }: { params: Promise<{ id: st
               <p>Tags :</p>
               {["Free couses", "Marketing", "Idea", "LMS", "LearnPress", "Instructor"].map((tags) => (
                 <div key={tags} className="p-1 py-3 ">
-                  <span className="p-2 border-[1px] border-gray-400 rounded text-gray-500 cursor-pointer hover:border-gray-800 hover:text-gray-900">{tags}</span>
+                  <span className="p-2 border-[1px] border-text-hover-butten-gray rounded text-gray-500 cursor-pointer hover:border-gray-800 hover:text-gray-900">{tags}</span>
                 </div>
               ))}
             </div>
@@ -74,7 +76,7 @@ export default async function BlogDetails({ params }: { params: Promise<{ id: st
               <p>Share :</p>
               {[<FaFacebookF key="" />, <FaPinterestP key="" />, <FaInstagram key="" />, <FaYoutube key="" />].map((Share, idx) => (
                 <div key={idx} className="p-1 py-3 flex items-center">
-                  <a href="#" className="border-gray-400 rounded text-gray-500 cursor-pointer hover:border-gray-800 hover:text-gray-900">
+                  <a href="#" className="border-text-hover-butten-gray rounded text-gray-500 cursor-pointer hover:border-gray-800 hover:text-gray-900">
                     {Share}
                   </a>
                 </div>
@@ -99,7 +101,7 @@ export default async function BlogDetails({ params }: { params: Promise<{ id: st
                 <div className="flex flex-wrap">
                   {["Free couses", "Marketing", "Idea", "LMS", "LearnPress", "Instructor"].map((tags) => (
                     <div key={tags} className="p-1 py-3">
-                      <span className="p-2 border-[1px] border-gray-400 rounded text-gray-500 cursor-pointer hover:border-gray-800 hover:text-gray-900">{tags}</span>
+                      <span className="p-2 border-[1px] border-text-hover-butten-gray rounded text-gray-500 cursor-pointer hover:border-gray-800 hover:text-gray-900">{tags}</span>
                     </div>
                   ))}
                 </div>

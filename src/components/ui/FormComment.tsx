@@ -113,7 +113,7 @@ export default function CommentComponent({ id }: { id: string }) {
                         message: "The minimum number of characters is 2",
                       },
                     })}
-                    className=" border-[1px] block border-gray-400 px-1 py-1 rounded-md w-full"
+                    className=" border-[1px] block border-gray-400 px-2 py-1 rounded-md w-full"
                   />
                   <p className="text-red-500 text-sm">{typeof errors?.name?.message === "string" ? errors?.name?.message : ""}</p>
                 </div>
@@ -128,7 +128,7 @@ export default function CommentComponent({ id }: { id: string }) {
                       },
                     })}
                     placeholder="Email*"
-                    className=" border-[1px] border-gray-400 px-1 py-1 rounded-md w-full"
+                    className=" border-[1px] border-gray-400 px-2 py-1 rounded-md w-full"
                   />
                   <p className="text-red-500 text-sm">{typeof errors?.email?.message === "string" ? errors?.email?.message : ""}</p>
                 </div>
@@ -144,14 +144,14 @@ export default function CommentComponent({ id }: { id: string }) {
                       message: "The minimum number of characters is 20",
                     },
                   })}
-                  className=" border-[1px] border-gray-400 px-1 py-1 rounded-md w-full h-50"
+                  className=" border-[1px] border-gray-400 px-2 py-2 rounded-md w-full h-50"
                 ></textarea>
                 <p className="text-red-500 text-sm">{typeof errors?.comment?.message === "string" ? errors?.comment?.message : ""}</p>
-                <div className="flex items-center gap-1">
+                <div className="flex gap-1">
                   <input type="checkbox" />
-                  <p>Save my name, email in this brower for the next time I comment</p>
+                  <p className="sm:text-md text-sm">Save my name, email in this brower for the next time I comment</p>
                 </div>
-                <button type="submit" className="py-2 px-3 bg-amber-500 text-white mt-3 rounded-3xl cursor-pointer">
+                <button type="submit" className="py-2 px-3 bg-main-color hover:bg-hover-butten-main-color duration-300 text-color-white mt-3 rounded-3xl cursor-pointer">
                   Posts comment
                 </button>
               </div>

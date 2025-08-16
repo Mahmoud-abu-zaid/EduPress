@@ -79,7 +79,7 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
 
             {paginatedData.length === 0 ? (
               <div className="flex justify-center items-center w-full h-96">
-                <div className="text-gray-500 text-lg py-10 flex flex-col justify-center items-center gap-3">
+                <div className="text-text-third-color text-lg py-10 flex flex-col justify-center items-center gap-3">
                   <Image src="/img/not-found.webp" alt=" icon not found searchnp" width={250} height={100} />
                   <p>No courses match your search.</p>
                 </div>
@@ -101,7 +101,7 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
 
                     <div className={`flex flex-col justify-between sm:p-4 p-3  ${isGridView ? "py-4" : "w-full sm:w-2/3"}`}>
                       <div>
-                        <p className="text-gray-500 text-sm">By {course.by}</p>
+                        <p className="text-text-third-color text-sm">By {course.by}</p>
                         <Link href={`/CourseDetails/${course.id}`} className="font-medium text-md sm:text-lg text-color-black hover:text-main-color transition duration-300 inline-block mb-2">
                           {course.title}
                         </Link>
