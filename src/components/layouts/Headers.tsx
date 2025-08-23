@@ -106,11 +106,9 @@ export default function Header() {
             ))}
             <hr className="my-2" />
             <div className="flex gap-2 text-sm font-medium">
-              <Link href="/login" className="hover:text-main-color">
+              <Link href="/Authentication" className="hover:text-main-color">
                 Login
-              </Link>
-              <span>/</span>
-              <Link href="/register" className="hover:text-main-color">
+                <span> / </span>
                 Register
               </Link>
             </div>

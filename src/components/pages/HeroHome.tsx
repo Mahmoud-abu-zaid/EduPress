@@ -9,7 +9,7 @@ export default function HeroHome() {
 
   return (
     <>
-      <div className="heroHome ">
+      <div className="bg-[url('/img/Rectangle88.png')] bg-size-[100%_100%] bg-center h-[80vh] bg-no-repeat flex items-center justify-center text-color-white">
         <div className=" flex justify-between items-center gap-5 text-black-text">
           <div className="p-3">
             <FadeInOnScroll>

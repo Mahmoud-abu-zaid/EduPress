@@ -4,7 +4,6 @@ import { MdContentCopy } from "react-icons/md";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 export default function ActiveCurriculum() {
   const [activeCurriculum, setActiveCurriculum] = useState(false);
-
   return (
     <>
       <div className="bg-white py-3 rounded px-2 mt-3 cursor-pointer">
@@ -24,7 +23,7 @@ export default function ActiveCurriculum() {
           <ul>
             <li className="py-3 px-1 hover:bg-gray-50 rounded">
               <div className="flex items-center gap-1">
-                <p className="text-gray-700">
+                <p className="text-second-color-text">
                   <MdContentCopy />
                 </p>
                 <p className="px-2">Lessons with video content</p>
@@ -32,7 +31,7 @@ export default function ActiveCurriculum() {
             </li>
             <li className="py-3 px-1 hover:bg-gray-50  rounded">
               <div className="flex items-center gap-1">
-                <p className="text-gray-700">
+                <p className="text-second-color-text">
                   <MdContentCopy />
                 </p>
                 <p className="px-2">Lessons with video content</p>
@@ -40,10 +39,10 @@ export default function ActiveCurriculum() {
             </li>
             <li className="py-3 px-1 hover:bg-gray-50  rounded">
               <div className="flex items-center gap-1">
-                <p className="text-gray-700">
+                <p className="text-second-color-text">
                   <MdContentCopy />
                 </p>
-                <p className="px-2">Lessons with video content</p>
+                <p className="px-2 text-color-black">Lessons with video content</p>
               </div>
             </li>
           </ul>

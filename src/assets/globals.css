@@ -1,35 +1,5 @@
 @import "tailwindcss";
 
-.heroHome {
-  background-image: url("/img//Rectangle88.png");
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-@media (min-width: 969px) and (max-width: 1024px) {
-  .course-tabs {
-    padding-top: 30px;
-  }
-}
-@media (min-width: 865px) and (max-width: 1024px) {
-  .courses-start {
-    padding-top: 30px;
-  }
-  .course-tabs {
-    padding-top: 70px;
-  }
-}
-@media (max-width: 767px) {
-  .course-tabs {
-    padding-top: 270px;
-  }
-}
-
 @theme {
   --color-color-white: hsl(0 0% 100%);
   --color-color-black: hsl(0, 0%, 0%);

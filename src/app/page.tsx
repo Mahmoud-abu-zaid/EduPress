@@ -43,7 +43,6 @@ export default function Home() {
       <div className="container mx-auto px-8">
         <Categories />
         <FeaturedCoursesAll />
-        {/* <BannerExplorerCourse /> */}
         <Statistics />
         <GrowSkils />
         <FeedBacks />

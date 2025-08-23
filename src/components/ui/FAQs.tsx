@@ -7,20 +7,16 @@ export default function FAQs({ background, taxtColor }: { background: string; ta
   return (
     <>
       <div className={`${background} ${taxtColor}  py-2 px-2 rounded-md`}>
-        <button onClick={() => setActive((state) => !state)} className={`cursor-pointer w-full  py-2 ${active ? "text-amber-500" : ""}`}>
-          <div className="flex justify-between items-center">
-            <div>
-              <p>What Does Royalty Free Mean?</p>
-            </div>
-            <div>
-              <p>{active ? <IoIosArrowUp /> : <IoIosArrowDown />}</p>
-            </div>
+        <button onClick={() => setActive((state) => !state)} className={`cursor-pointer w-full py-2 ${active ? "text-main-color" : ""}`}>
+          <div className={`flex items-center gap-1 ${active ? "text-main-color" : "text-color-black"}`}>
+            <p>{active ? <IoIosArrowUp /> : <IoIosArrowDown />}</p>
+            <p>What Does Royalty Free Mean?</p>
           </div>
         </button>
 
         {active && (
           <div>
-            <p className="text-sm">
+            <p className="text-sm text-color-black">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis faucibus odio arcu duis <br />
               dui, adipiscing facilisis. Urna, donec turpis egestas volutpat. Quisque nec non amet quis. <br />
               Varius tellus justo odio parturient mauris curabitur lorem in.
