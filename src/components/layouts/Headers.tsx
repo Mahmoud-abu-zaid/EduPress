@@ -7,7 +7,7 @@ import { useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { usePathname } from "next/navigation";
 import { IoIosArrowDown } from "react-icons/io";
-import { IoSearchCircleOutline } from "react-icons/io5";
+import ThemeSwitcher from "../utils/ThemeProvider";
 
 export default function Header() {
   const pathname = usePathname();
@@ -30,7 +30,7 @@ export default function Header() {
 
   return (
     <header className="bg-color-white shadow-md">
-      <nav className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <nav className="bg-color-white max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 text-color-black text-2xl font-bold">
           <Image src="/img/Screenshot 2025-06-07 093836.png" alt="EduPress Logo" width={40} height={40} />
           EduPress
@@ -51,7 +51,7 @@ export default function Header() {
                 <ul className="absolute left-0 top-5 hidden group-hover:block bg-color-white shadow-lg rounded-md w-40 text-sm z-50">
                   {li.nestedNav.map((nested) => (
                     <li key={nested.path}>
-                      <Link href={nested.path} className="block px-4 py-2 hover:bg-gray-100 text-color-black">
+                      <Link href={nested.path} className="block px-4 py-2 hover:bg-gray-100 hover:text-black">
                         {nested.label}
                       </Link>
                     </li>
@@ -64,11 +64,11 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <div className="hidden lg:flex items-center gap-2 text-sm">
-            <Link href="/Authentication" className="text-sm font-medium hover:text-main-color transition-all flex items-center gap-1">
+            <Link href="/Authentication" className="text-sm font-medium text-color-black hover:text-main-color transition-all flex items-center gap-1">
               Login / Register
             </Link>
           </div>
-          <IoSearchCircleOutline className="text-3xl text-main-color" />
+          <ThemeSwitcher />
           <div className="lg:hidden text-2xl cursor-pointer">
             <CiMenuFries onClick={() => setShowMenu((prev) => !prev)} />
           </div>
@@ -76,12 +76,12 @@ export default function Header() {
       </nav>
 
       {showMenu && (
-        <div className="lg:hidden z-10 bg-white px-6 pb-4 pt-2 absolute left-0 right-0 rounded-b-lg">
+        <div className="lg:hidden z-10 bg-color-white px-6 pb-4 pt-2 absolute left-0 right-0 rounded-b-lg">
           <ul className="flex flex-col gap-4">
             {nav.map((li) => (
               <li key={li.label}>
                 <div className="flex justify-between items-center">
-                  <Link href={li.path} className={clsx("text-black text-base", pathname === li.path && "text-main-color font-semibold")}>
+                  <Link href={li.path} className={clsx("text-color-black text-base", pathname === li.path && "text-main-color font-semibold")}>
                     {li.label}
                   </Link>
                   {Array.isArray(li.nestedNav) && (
@@ -104,9 +104,9 @@ export default function Header() {
                 )}
               </li>
             ))}
-            <hr className="my-2" />
+            <hr className="my-2 text-color-black" />
             <div className="flex gap-2 text-sm font-medium">
-              <Link href="/Authentication" className="hover:text-main-color">
+              <Link href="/Authentication" className="hover:text-main-color text-color-black">
                 Login
                 <span> / </span>
                 Register

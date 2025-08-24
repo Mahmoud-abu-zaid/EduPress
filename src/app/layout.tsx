@@ -1,10 +1,12 @@
+
+import "../assets/globals.css";
 import type { Metadata } from "next";
+import { jost } from "@/fonts/allFonts";
+import { ThemeProvider } from "next-themes";
+import { ToastContainer } from "react-toastify";
 import Footer from "@/components/layouts/Footer";
 import Header from "@/components/layouts/Headers";
 import ToggleLanguage from "@/components/utils/ToggleLanguage";
-import "../assets/globals.css";
-import { ToastContainer } from "react-toastify";
-import { jost } from "@/fonts/allFonts";
 import OfflineWrapper from "@/components/pages/OfflineWrapper";
 export const metadata: Metadata = {
   title: "EduPress Online Courses",
@@ -17,17 +19,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html>
+    <html suppressHydrationWarning lang="en" data-theme="light">
       <body className={`${jost.className}`}>
-        <OfflineWrapper>
-          <ToastContainer />
-          <ToggleLanguage>
-            <Header />
-            {children}
-
-            <Footer />
-          </ToggleLanguage>
-        </OfflineWrapper>
+        <ThemeProvider attribute="data-theme" defaultTheme="light" enableSystem={false}>
+          <OfflineWrapper>
+            <ToastContainer />
+            <ToggleLanguage>
+              <Header />
+              {children}
+              <Footer />
+            </ToggleLanguage>
+          </OfflineWrapper>
+        </ThemeProvider>
       </body>
     </html>
   );

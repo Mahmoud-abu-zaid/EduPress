@@ -31,11 +31,11 @@ export default function Categories() {
           <BtnLinkAll path="/" title="All categories" />
         </div>
         <div className="flex justify-center px-4">
-          <div className="grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2  justify-center items-center gap-7 pb-8 w-fit">
+          <div className="grid 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 w-full justify-center items-center gap-7 pb-8 sm:w-fit">
             {categories.map((categorie, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center justify-center w-[234px] h-[234px] shadow rounded-2xl cursor-pointer transform transition-transform duration-70 hover:scale-105 hover:shadow-lg"
+                className="flex flex-col items-center justify-center sm:w-[234px] sm:h-[234px] w-full h-70 shadow-fourth-color-gray-bg rounded-2xl cursor-pointer transform transition-transform duration-70 hover:scale-105 hover:shadow-lg"
               >
                 <i className="text-3xl text-main-color">{categorie.icons}</i>
                 <p className="text-[20px] font-semibold py-3 text-color-black">{categorie.title}</p>

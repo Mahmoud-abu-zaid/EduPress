@@ -70,14 +70,14 @@ export default function CourseTabs({ id }: { id: string }) {
   return (
     <div className="lg:container mx-auto px-4">
       <div className="flex justify-around items-center w-full lg:w-[64%] ">
-        <div className="pb-3 pt-0  bg-gray-100 w-full  my-4 ">
+        <div className="pb-3 pt-0  bg-fourth-color-gray-bg w-full  my-4 ">
           <ul className="md:flex gap-2 mb-4 sm:w-full md:justify-around  md:flex-nowrap flex-wrap sm:grid sm:grid-cols-3 grid grid-cols-2 rounded-b-none border-1 border-fourth-color-gray-bg">
             {tabs.map((tab) => (
               <li
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`cursor-pointer py-4  px-5 w-full h-full text-center
-                ${activeTab === tab ? "bg-gray-200 text-main-color font-semibold" : "text-black"}`}
+                ${activeTab === tab ? "bg-gray-200 text-main-color font-semibold" : "text-color-black"}`}
               >
                 {tab}
               </li>

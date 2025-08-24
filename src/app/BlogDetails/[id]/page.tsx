@@ -24,13 +24,13 @@ export default async function BlogDetails({ params }: { params: Promise<{ id: st
   return (
     <>
       <div>
-        <div className="flex  items-center gap-1 flex-wrap bg-gray-100 py-2  text-gray-500 ">
+        <div className="flex  items-center gap-1 flex-wrap bg-gray-100 py-2  text-second-color-text ">
           <div className="container mx-auto md:px-15 sm:px-13 px-6 flex items-center gap-1">
             <Link href="/">Homepage</Link>
             <IoIosArrowForward />
             <Link href="/Blog">blog</Link>
             <IoIosArrowForward className="hidden sm:block" />
-            <p className="text-color-black hidden sm:block">{blog.title}</p>
+            <p className="text-third-color hidden sm:block">{blog.title}</p>
           </div>
         </div>
         <div className="flex justify-center gap-6 py-6 container mx-auto sm:px-8 px-2">
@@ -53,22 +53,20 @@ export default async function BlogDetails({ params }: { params: Promise<{ id: st
             </div>
             <div>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis faucibus odio arcu duis dui, adipiscing facilisis. Urna,
-                <br /> donec turpis egestas volutpat. Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar <br />
-                sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie <br />
-                dignissim sed volutpat feugiat vel enim eu turpis imperdiet.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis faucibus odio arcu duis dui, adipiscing facilisis. Urna, donec turpis egestas volutpat. Quisque nec non amet
+                quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus. At eget euismod
+                cursus non. Molestie dignissim sed volutpat feugiat vel enim eu turpis imperdiet.
               </p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis faucibus odio arcu duis dui, adipiscing facilisis. Urna, <br />
-                donec turpis egestas volutpat. Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar <br /> sit ultrices mi ut eleifend luctus ut. Id sed
-                faucibus bibendum augue id cras purus.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis faucibus odio arcu duis dui, adipiscing facilisis. Urna, donec turpis egestas volutpat. Quisque nec non amet
+                quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar sit ultrices mi ut eleifend luctus ut. Id sed faucibus bibendum augue id cras purus.
               </p>
             </div>
             <div className="flex items-center flex-wrap">
               <p>Tags :</p>
               {["Free couses", "Marketing", "Idea", "LMS", "LearnPress", "Instructor"].map((tags) => (
-                <div key={tags} className="p-1 py-3 ">
-                  <span className="p-2 border-[1px] border-text-hover-butten-gray rounded text-gray-500 cursor-pointer hover:border-gray-800 hover:text-gray-900">{tags}</span>
+                <div key={tags} className="p-1 py-3">
+                  <span className="p-2 border-[1px] text-third-color rounded text-text-third-color cursor-pointer hover:border-second-color-text hover:text-color-black">{tags}</span>
                 </div>
               ))}
             </div>
@@ -89,7 +87,7 @@ export default async function BlogDetails({ params }: { params: Promise<{ id: st
               <div>
                 <h3 className="font-semibold mb-2">Category</h3>
                 {["Commercial", "Office", "Shop", "Educate", "Academy", "Single family home"].map((category) => (
-                  <div key={category} className="flex items-center justify-between text-gray-600">
+                  <div key={category} className="flex items-center justify-between text-third-color">
                     <p>{category}</p>
                     <p>15</p>
                   </div>
@@ -101,7 +99,7 @@ export default async function BlogDetails({ params }: { params: Promise<{ id: st
                 <div className="flex flex-wrap">
                   {["Free couses", "Marketing", "Idea", "LMS", "LearnPress", "Instructor"].map((tags) => (
                     <div key={tags} className="p-1 py-3">
-                      <span className="p-2 border-[1px] border-text-hover-butten-gray rounded text-gray-500 cursor-pointer hover:border-gray-800 hover:text-gray-900">{tags}</span>
+                      <span className="p-2 border-[1px] text-third-color rounded text-text-third-color cursor-pointer hover:border-second-color-text hover:text-color-black">{tags}</span>
                     </div>
                   ))}
                 </div>

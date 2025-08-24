@@ -6,7 +6,7 @@ export default function Contect() {
     <div className="py-7 flex justify-center flex-wrap gap-8 px-4">
       <div>
         <h1 className="text-3xl font-semibold">Need a direct line?</h1>
-        <p className="text-gray-600">
+        <p className="text-second-color-text">
           Cras massa et odio donec faucibus in. Vitae pretium <br />
           massa dolor ullamcorper lectus elit quam.
         </p>
@@ -15,7 +15,7 @@ export default function Contect() {
             <FaPhone />
           </div>
           <div>
-            <p className="text-gray-700">Phone</p>
+            <p className="text-second-color-text">Phone</p>
             <p>(123) 456 7890</p>
           </div>
         </div>
@@ -24,8 +24,8 @@ export default function Contect() {
             <MdEmail />
           </div>
           <div>
-            <p className="text-gray-700">Email</p>
-            <p>contact@thimpress.com</p>
+            <p className="text-second-color-text">Email</p>
+            <p className="">contact@thimpress.com</p>
           </div>
         </div>
       </div>

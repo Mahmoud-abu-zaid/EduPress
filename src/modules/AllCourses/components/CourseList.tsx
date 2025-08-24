@@ -94,7 +94,7 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
                     <Link href={`/CourseDetails/${course.id}`} className={isGridView ? "" : "w-full sm:w-1/3"}>
                       <div className="relative h-full">
                         <Image src={course.img} alt={course.title} className={`w-full h-full`} width={400} height={250} />
-                        <div className="text-xs absolute top-0 left-3 bg-black px-4 py-2 text-color-white mt-3 mr-3 rounded-lg">{course.Photography}</div>
+                        <div className="text-xs absolute top-0 left-3 bg-color-black px-4 py-2 text-color-white mt-3 mr-3 rounded-lg">{course.Photography}</div>
                         <div className={`absolute inset-0 bg-color-black opacity-20 hover:opacity-0 transition-opacity ease-in ${isGridView ? "" : " rounded-tr-2xl"}`}></div>
                       </div>
                     </Link>

@@ -45,7 +45,7 @@ export default function Blog({ data }: { data: BlogType[] }) {
                 <h3 className="text-xl text-color-black">All Courses</h3>
               </div>
               <div className="flex items-center gap-2">
-                <div className="flex items-center gap-2 border-b-4 border-second-color-text rounded-2xl px-2 py-1">
+                <div className="flex items-center gap-2 border-b-2 border-color-black py-1">
                   <input type="text" placeholder="Search blogs..." className=" px-2 py-2 outline-0" value={search} onChange={(e) => setSearch(e.target.value)} />
                   <IoSearch />
                 </div>
@@ -71,16 +71,16 @@ export default function Blog({ data }: { data: BlogType[] }) {
             ) : (
               <div className={`grid gap-10 justify-center pb-8 ${isGridView ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"}`}>
                 {paginatedData.map((blog) => (
-                  <div key={blog.id} className={`rounded-3xl shadow-lg overflow-hidden flex hover:scale-105 transition duration-300 ease-in-out ${isGridView ? "flex-col" : "flex-col sm:flex-row"}`}>
+                  <div key={blog.id} className={`bg-color-white rounded-3xl shadow-lg overflow-hidden flex hover:scale-105 transition duration-300 ease-in-out ${isGridView ? "flex-col" : "flex-col sm:flex-row"}`}>
                     <Link href={`/BlogDetails/${blog.id}`} className={isGridView ? "" : "w-full sm:w-1/3"}>
                       <div className="relative h-full">
                         <Image src={blog.img} alt={blog.title} className={`w-full h-full`} width={400} height={250} />
-                        <div className="text-xs absolute top-0 left-3 bg-black px-4 py-2 text-white mt-3 mr-3 rounded-lg">{blog.Photography}</div>
+                        <div className="text-xs absolute top-0 left-3 bg-color-black px-4 py-2 text-color-white mt-3 mr-3 rounded-lg">{blog.Photography}</div>
                         <div className={`absolute inset-0 bg-gray-800 opacity-20 hover:opacity-0 transition-opacity ease-in ${isGridView ? "" : " rounded-tr-2xl"}`}></div>
                       </div>
                     </Link>
 
-                    <div className={`flex flex-col justify-between ${isGridView ? "px-6 py-4" : "p-4 w-full sm:w-2/3"}`}>
+                    <div className={`flex flex-col justify-between ${isGridView ? "p-3" : "p-4 w-full sm:w-2/3"}`}>
                       <div>
                         <Link href={`/BlogDetails/${blog.id}`} className="font-medium sm:text-lg hover:text-amber-500 transition duration-300 inline-block mb-2">
                           {blog.title}
@@ -89,10 +89,10 @@ export default function Blog({ data }: { data: BlogType[] }) {
                           <IoIosCalendar className="text-orange-400 text-xl font-bold" />
                           {blog.data}
                         </p>
-                        <p className="text-text-third-color">{blog.discription}</p>
+                        <p className="text-text-third-color pb-3">{blog.discription}</p>
                       </div>
 
-                      <div className="flex justify-between items-center pt-4 border-t border-gray-300 flex-wrap gap-4">
+                      <div className="flex justify-between items-center pt-3 border-t border-gray-300 flex-wrap gap-4">
                         <Link href={`/BlogDetails/${blog.id}`} className="text-sm whitespace-nowrap">
                           View More
                         </Link>
@@ -136,7 +136,7 @@ export default function Blog({ data }: { data: BlogType[] }) {
                 <div className="flex flex-wrap">
                   {["Free couses", "Marketing", "Idea", "LMS", "LearnPress", "Instructor"].map((tags) => (
                     <div key={tags} className="p-1 py-3">
-                      <span className="p-2 border-[1px] text-third-color rounded text-text-third-color cursor-pointer hover:border-second-color-text hover:text-gray-900">{tags}</span>
+                      <span className="p-2 border-[1px] text-third-color rounded text-text-third-color cursor-pointer hover:border-second-color-text hover:text-color-black">{tags}</span>
                     </div>
                   ))}
                 </div>

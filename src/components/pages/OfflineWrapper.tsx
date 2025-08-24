@@ -7,7 +7,6 @@ export default function OfflineWrapper({ children }: { children: React.ReactNode
   const [isOnline, setIsOnline] = useState(true);
 
   useEffect(() => {
-    
     setIsOnline(navigator.onLine);
 
     const handleOnline = () => setIsOnline(true);
@@ -26,8 +25,7 @@ export default function OfflineWrapper({ children }: { children: React.ReactNode
     return (
       <div className="flex items-center justify-center h-[100vh] bg-gray-100 text-center p-4">
         <div>
-          <span className="text-gray-600 flex items-center gap-6 text-7xl">
-            
+          <span className="text-gray-600 flex sm:flex-row flex-col items-center gap-6 sm:text-7xl text-[50px]">
             <IoCloudOfflineOutline /> {"You're offline"}
           </span>
         </div>

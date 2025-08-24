@@ -59,7 +59,7 @@ export default async function CourseDetails({ params }: { params: Promise<{ id: 
           <IoIosArrowForward />
           <Link href="/AllCourses">Courses</Link>
           <IoIosArrowForward className="hidden sm:block" />
-          <p className="text-color-black hidden sm:block">{course.title}</p>
+          <p className="text-third-color hidden sm:block">{course.title}</p>
         </div>
       </div>
 
