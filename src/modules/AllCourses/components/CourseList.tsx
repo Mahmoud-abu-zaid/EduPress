@@ -3,54 +3,24 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaList } from "react-icons/fa6";
 import { IoIosTime } from "react-icons/io";
-import { useEffect, useState } from "react";
 import { ImStatsBars } from "react-icons/im";
 import { IoGrid, IoSearch } from "react-icons/io5";
 import { MdFileCopy, MdQuiz } from "react-icons/md";
 import { RiGraduationCapFill } from "react-icons/ri";
+import { useCourseList, useCoursesFilter } from "../hooks/useCourseList";
 import FadeInOnScroll from "@/components/animation/FadeInOnScroll";
 import { DataCorurses } from "@/modules/AllCourses/types/typeCourses";
 
 export default function CourseList({ data }: { data: DataCorurses[] }) {
-  const [search, setSearch] = useState("");
+  const { search, setSearch, sliderIndex, setSliderIndex, isGridView, setIsGridView, selectedCategories, setSelectedCategories } = useCourseList();
 
-  const [sliderIndex, setSliderIndex] = useState(1);
-
-  const [isGridView, setIsGridView] = useState(true);
-
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-
-  const filteredData = data.filter((course) => {
-    const matchesSearch =
-      course.title?.toLowerCase().includes(search.toLowerCase()) ||
-      course.Photography?.toLowerCase().includes(search.toLowerCase()) ||
-      course.by?.toLowerCase().includes(search.toLowerCase()) ||
-      course.priceFree?.toLowerCase().includes(search.toLowerCase());
-
-    const matchesCategory =
-      selectedCategories.length === 0 ||
-      selectedCategories.includes(course.category) ||
-      selectedCategories.includes(course.instructor) ||
-      selectedCategories.includes(course.levels) ||
-      (course.review !== undefined && selectedCategories.includes(course.review.toString()));
-
-    return matchesSearch && matchesCategory;
+  const { paginatedData, totalPages } = useCoursesFilter({
+    data,
+    search,
+    selectedCategories,
+    sliderIndex,
+    setSliderIndex,
   });
-
-  const coursesPage = 6;
-
-  const startIndex = (sliderIndex - 1) * coursesPage;
-
-  const endIndex = startIndex + coursesPage;
-
-  const paginatedData = filteredData.slice(startIndex, endIndex);
-
-  const totalPages = Math.ceil(filteredData.length / coursesPage);
-
-  useEffect(() => {
-    setSliderIndex(1);
-  }, [search, selectedCategories]);
-
   return (
     <>
       <FadeInOnScroll>
@@ -66,11 +36,11 @@ export default function CourseList({ data }: { data: DataCorurses[] }) {
                   <IoSearch />
                 </div>
                 <div className="hidden items-center gap-2 sm:flex">
-                  <button onClick={() => setIsGridView(true)} className={`px-2 py-1 rounded-md cursor-pointer text-2xl ${isGridView ? "text-amber-400" : "text-gray-700"}`}>
+                  <button onClick={() => setIsGridView(true)} className={`px-2 py-1 rounded-md cursor-pointer text-2xl ${isGridView ? "text-main-color" : "text-second-color-text"}`}>
                     <IoGrid />
                   </button>
 
-                  <button onClick={() => setIsGridView(false)} className={`px-2 py-1 rounded-md cursor-pointer text-2xl ${!isGridView ? "text-amber-400" : "text-gray-700"}`}>
+                  <button onClick={() => setIsGridView(false)} className={`px-2 py-1 rounded-md cursor-pointer text-2xl ${!isGridView ? "text-main-color" : "text-second-color-text"}`}>
                     <FaList />
                   </button>
                 </div>

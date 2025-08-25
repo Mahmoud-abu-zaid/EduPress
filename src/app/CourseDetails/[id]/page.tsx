@@ -54,7 +54,7 @@ export default async function CourseDetails({ params }: { params: Promise<{ id: 
   return (
     <div>
       <div>
-        <div className="flex items-center gap-1 flex-wrap bg-gray-100 py-2 px-4 text-second-color-text">
+        <div className="flex items-center gap-1 flex-wrap bg-fourth-color-gray-bg py-2 px-4 text-second-color-text">
           <Link href="/">Homepage</Link>
           <IoIosArrowForward />
           <Link href="/AllCourses">Courses</Link>
@@ -65,17 +65,17 @@ export default async function CourseDetails({ params }: { params: Promise<{ id: 
 
       <FadeInOnScroll>
         <div className="flex flex-col">
-          <div className="bg-color-black lg:h-[220px] flex lg:px-0 xl:px-20 xl:justify-between 3xl:justify-around justify-around items-center gap-3 flex-wrap lg:flex-nowrap p-5">
+          <div className="bg-black lg:h-[220px] flex lg:px-0 xl:px-20 xl:justify-between 3xl:justify-around justify-around items-center gap-3 flex-wrap lg:flex-nowrap p-5">
             <div className="flex flex-col gap-2 py-2">
               <div className="flex items-center gap-3 ">
-                <p className="py-2 px-3 bg-second-color-text text-color-white w-fit rounded-lg">{course.Photography}</p>
-                <p className="text-color-white mb-2 sm:text-xl text-sm">
+                <p className="py-2 px-3 bg-second-color-text text-white w-fit rounded-lg">{course.Photography}</p>
+                <p className="text-white mb-2 sm:text-xl text-sm">
                   <span className="text-second-color-text sm:text-xl text-md">By</span> {course.by}
                 </p>
               </div>
 
               <div>
-                <h1 className="text-xl sm:text-2xl md:text-3xl text-color-white">{course.title}</h1>
+                <h2 className="text-xl sm:text-2xl md:text-3xl text-white">{course.title}</h2>
               </div>
 
               <div className="flex items-center flex-wrap sm:gap-4 gap-1">

@@ -17,8 +17,8 @@ export default function FAQs({ background, taxtColor }: { background: string; ta
         {active && (
           <div>
             <p className="text-sm text-color-black">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis faucibus odio arcu duis <br />
-              dui, adipiscing facilisis. Urna, donec turpis egestas volutpat. Quisque nec non amet quis. <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis faucibus odio arcu duis 
+              dui, adipiscing facilisis. Urna, donec turpis egestas volutpat. Quisque nec non amet quis. 
               Varius tellus justo odio parturient mauris curabitur lorem in.
             </p>
           </div>

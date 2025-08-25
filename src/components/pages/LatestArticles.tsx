@@ -2,10 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import BtnLinkAll from "../ui/BtnLinkAll";
 import { IoIosTime } from "react-icons/io";
-import { DataCorurses } from "@/modules/AllCourses/types/typeCourses";
 import { RiGraduationCapFill } from "react-icons/ri";
 import TitleDescription from "../ui/TitleDescription";
 import FadeInOnScroll from "../animation/FadeInOnScroll";
+import { DataCorurses } from "@/modules/AllCourses/types/typeCourses";
 
 export default async function LatestArticles() {
   const response = await fetch("https://edupress-neon.vercel.app/json/latestArticles.json", {
@@ -29,7 +29,10 @@ export default async function LatestArticles() {
           <div className="max-w-screen-xl mx-auto pb-5  md:pb-16">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
               {data.map((course) => (
-                <div key={course.id} className="bg-color-white rounded shadow-lg flex flex-col hover:scale-105 transition-transform duration-300 ease-in-out">
+                <div
+                  key={course.id}
+                  className="bg-color-white rounded-4xl shadow-[0_0_20px_rgba(0,0,0,0.3)] shadow-fourth-color-gray-bg flex flex-col hover:scale-105 transition-transform duration-300 ease-in-out"
+                >
                   <Link href={`/CourseDetails/${course.id}`}>
                     <div className="relative">
                       <Image src={course.img} alt={course.title} className="w-full" width={400} height={250} />

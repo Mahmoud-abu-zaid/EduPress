@@ -1,4 +1,4 @@
-import { BlogType } from "../types/type";
+import { BlogType } from "../types/typeBlog";
 
 export default async function getBlog(): Promise<BlogType[]> {
   const response = await fetch("https://edupress-neon.vercel.app/json/blog.json", {

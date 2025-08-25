@@ -77,7 +77,7 @@ export default function CourseTabs({ id }: { id: string }) {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`cursor-pointer py-4  px-5 w-full h-full text-center
-                ${activeTab === tab ? "bg-gray-200 text-main-color font-semibold" : "text-color-black"}`}
+                ${activeTab === tab ? "bg-color-white text-main-color font-semibold" : "text-color-black"}`}
               >
                 {tab}
               </li>

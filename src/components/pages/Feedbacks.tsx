@@ -38,7 +38,7 @@ export default function FeedBacks() {
           <TitleDescription title="Student feedbacks" description="What Students Say About Academy LMS" />
         </div>
 
-        <div className="flex justify-center md:justify-between items-center gap-7 px-10 flex-wrap">
+        <div className="flex justify-center md:justify-between items-center gap-7 flex-wrap">
           {feedbacks.map((feedbacks) => (
             <div key={feedbacks.id} className="md:w-[250px] min-w-[250px] min-h-[345px] md:h-[345px] hover:scale-105 transition-transform duration-300 ease-in-out py-4 px-6 border border-gray-200 rounded-lg shadow-lg ">
               <p className="text-5xl text-third-color py-3 ">{feedbacks.icon}</p>

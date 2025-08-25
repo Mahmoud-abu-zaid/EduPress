@@ -16,3 +16,16 @@ export interface DataCorurses {
   instructor: string;
   review: number;
 }
+export interface FilterParams {
+  data: DataCorurses[];
+  search: string;
+  selectedCategories: string[];
+}
+
+export interface UseCoursesFilterProps {
+  data: DataCorurses[];
+  search: string;
+  selectedCategories: string[];
+  sliderIndex: number;
+  setSliderIndex: React.Dispatch<React.SetStateAction<number>>;
+}

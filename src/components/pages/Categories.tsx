@@ -35,7 +35,7 @@ export default function Categories() {
             {categories.map((categorie, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center justify-center sm:w-[234px] sm:h-[234px] w-full h-70 shadow-fourth-color-gray-bg rounded-2xl cursor-pointer transform transition-transform duration-70 hover:scale-105 hover:shadow-lg"
+                className="flex flex-col items-center justify-center sm:w-[234px] sm:h-[234px] w-full h-70 shadow-fourth-color-gray-bg rounded-2xl cursor-pointer transform transition-transform duration-70 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] "
               >
                 <i className="text-3xl text-main-color">{categorie.icons}</i>
                 <p className="text-[20px] font-semibold py-3 text-color-black">{categorie.title}</p>

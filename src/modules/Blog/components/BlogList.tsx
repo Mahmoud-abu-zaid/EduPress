@@ -2,38 +2,22 @@
 import Link from "next/link";
 import Image from "next/image";
 import { FaList } from "react-icons/fa6";
-import { BlogType } from "../types/type";
-import { useEffect, useState } from "react";
+import { BlogType } from "../types/typeBlog";
 import { IoIosCalendar } from "react-icons/io";
 import { IoGrid, IoSearch } from "react-icons/io5";
 import FadeInOnScroll from "@/components/animation/FadeInOnScroll";
+import { useBlogList } from "../hooks/useBlogList";
+import { useBlogsFilter } from "../services/filterBlogservices";
 
 export default function Blog({ data }: { data: BlogType[] }) {
-  const [search, setSearch] = useState("");
+  const { search, setSearch, sliderIndex, setSliderIndex, isGridView, setIsGridView } = useBlogList();
 
-  const [sliderIndex, setSliderIndex] = useState(1);
-
-  const [isGridView, setIsGridView] = useState(true);
-
-  const filteredData = data.filter((blog) => {
-    const matchesSearch = blog.title?.toLowerCase().includes(search.toLowerCase()) || blog.Photography?.toLowerCase().includes(search.toLowerCase());
-
-    return matchesSearch;
+  const { paginatedData, totalPages } = useBlogsFilter({
+    data,
+    search,
+    sliderIndex,
+    setSliderIndex,
   });
-
-  const blogsPage = 6;
-
-  const startIndex = (sliderIndex - 1) * blogsPage;
-
-  const endIndex = startIndex + blogsPage;
-
-  const paginatedData = filteredData.slice(startIndex, endIndex);
-
-  const totalPages = Math.ceil(filteredData.length / blogsPage);
-
-  useEffect(() => {
-    setSliderIndex(1);
-  }, [search]);
 
   return (
     <>
@@ -71,12 +55,15 @@ export default function Blog({ data }: { data: BlogType[] }) {
             ) : (
               <div className={`grid gap-10 justify-center pb-8 ${isGridView ? "grid-cols-1 sm:grid-cols-2" : "grid-cols-1"}`}>
                 {paginatedData.map((blog) => (
-                  <div key={blog.id} className={`bg-color-white rounded-3xl shadow-lg overflow-hidden flex hover:scale-105 transition duration-300 ease-in-out ${isGridView ? "flex-col" : "flex-col sm:flex-row"}`}>
+                  <div
+                    key={blog.id}
+                    className={`bg-color-white rounded-3xl shadow-lg overflow-hidden flex hover:scale-105 transition duration-300 ease-in-out ${isGridView ? "flex-col" : "flex-col sm:flex-row"}`}
+                  >
                     <Link href={`/BlogDetails/${blog.id}`} className={isGridView ? "" : "w-full sm:w-1/3"}>
                       <div className="relative h-full">
                         <Image src={blog.img} alt={blog.title} className={`w-full h-full`} width={400} height={250} />
                         <div className="text-xs absolute top-0 left-3 bg-color-black px-4 py-2 text-color-white mt-3 mr-3 rounded-lg">{blog.Photography}</div>
-                        <div className={`absolute inset-0 bg-gray-800 opacity-20 hover:opacity-0 transition-opacity ease-in ${isGridView ? "" : " rounded-tr-2xl"}`}></div>
+                        <div className={`absolute inset-0 bg-second-color-text opacity-20 hover:opacity-0 transition-opacity ease-in ${isGridView ? "" : " rounded-tr-2xl"}`}></div>
                       </div>
                     </Link>
 
