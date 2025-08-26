@@ -38,9 +38,12 @@ export default function FeedBacks() {
           <TitleDescription title="Student feedbacks" description="What Students Say About Academy LMS" />
         </div>
 
-        <div className="flex justify-center md:justify-between items-center gap-7 flex-wrap">
+        <div className="flex justify-center lg:justify-evenly items-center gap-7 flex-wrap">
           {feedbacks.map((feedbacks) => (
-            <div key={feedbacks.id} className="md:w-[250px] min-w-[250px] min-h-[345px] md:h-[345px] hover:scale-105 transition-transform duration-300 ease-in-out py-4 px-6 border border-gray-200 rounded-lg shadow-lg ">
+            <div
+              key={feedbacks.id}
+              className="md:w-[250px] min-w-[250px] min-h-[345px] md:h-[345px] hover:scale-105 transition-transform duration-300 ease-in-out py-4 px-6 border border-gray-200 rounded-lg  shadow-fourth-color-gray-bg cursor-pointer transform hover:shadow-[0_0_20px_rgba(0,0,0,0.3)] "
+            >
               <p className="text-5xl text-third-color py-3 ">{feedbacks.icon}</p>
               <p className="text-color-black">{feedbacks.comment}</p>
               <p className="text-xl font-semibold py-2 text-color-black">{feedbacks.name}</p>

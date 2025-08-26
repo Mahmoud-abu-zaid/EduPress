@@ -1,69 +1,40 @@
 "use client";
 import Image from "next/image";
+import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { CiStar } from "react-icons/ci";
 import { BsReply } from "react-icons/bs";
-import { useForm } from "react-hook-form";
 import { TiDelete } from "react-icons/ti";
 import { IoIosTime } from "react-icons/io";
 import { MdFileCopy } from "react-icons/md";
-import { useEffect, useState } from "react";
 import FAQs from "../../../components/ui/FAQs";
 import Rating from "../../../components/ui/Rating";
+import useCoursesTabs from "../hooks/useCourcesTaps";
 import { DateForComment } from "../types/courseTabsTypes";
-import { getCommit } from "../services/courseTabsServices";
 import FadeInOnScroll from "@/components/animation/FadeInOnScroll";
 import ActiveCurriculum from "../../../components/ui/ActiveCurriculum";
+import { addComment, deleteCommentByCourse, getCommentByCourse } from "../services/courseTabsServices";
 import { FaFacebookF, FaInstagram, FaPinterestP, FaStar, FaXTwitter, FaYoutube } from "react-icons/fa6";
 
 const tabs = ["Overview", "Curriculum", "Instructor", "FAQs", "Reviews"];
 
 export default function CourseTabs({ id }: { id: string }) {
-  const [submitCommit, setSubmitCommit] = useState<DateForComment[]>([]);
-  const [activeTab, setActiveTab] = useState("Overview");
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<DateForComment>();
-
+  const { submitComment, setSubmitComment, activeTab, setActiveTab, register, handleSubmit, errors, reset } = useCoursesTabs();
+  
   useEffect(() => {
-    const allComments = JSON.parse(localStorage.getItem("courseComments") || "[]") as DateForComment[];
-    setSubmitCommit(allComments.filter((c) => c.id === id));
+    setSubmitComment(getCommentByCourse(id));
   }, [id]);
 
-  useEffect(() => {
-    setSubmitCommit(getCommit());
-  }, []);
-
   function onSubmit(data: Omit<DateForComment, "date">) {
-    const allComments: DateForComment[] = JSON.parse(localStorage.getItem("courseComments") || "[]");
-
-    const printDate: DateForComment = {
-      ...data,
-      id: id,
-      date: new Date().toLocaleDateString(),
-    };
-
-    const updatedAll = [...allComments, printDate];
-    localStorage.setItem("courseComments", JSON.stringify(updatedAll));
-
-    setSubmitCommit(updatedAll.filter((comment) => comment.id === id));
+    const updated = addComment(id, data);
+    setSubmitComment(updated);
     reset();
     toast.success("Add comment successfully");
   }
 
   function handleDelete(indexInFiltered: number) {
-    const allComments: DateForComment[] = JSON.parse(localStorage.getItem("courseComments") || "[]");
-
-    const filteredForCourse = allComments.filter((c) => c.id === id);
-    const commentToDelete = filteredForCourse[indexInFiltered];
-
-    const updatedAll = allComments.filter((c) => c !== commentToDelete);
-    localStorage.setItem("courseComments", JSON.stringify(updatedAll));
-
-    setSubmitCommit(updatedAll.filter((c) => c.id === id));
+    const updated = deleteCommentByCourse(id, indexInFiltered);
+    setSubmitComment(updated);
     toast.success("Delete comment successfully");
   }
 
@@ -192,9 +163,9 @@ export default function CourseTabs({ id }: { id: string }) {
                 <Rating />
               </div>
               <div>
-                {submitCommit && (
+                {submitComment && (
                   <div>
-                    {submitCommit
+                    {submitComment
                       .filter((comment) => comment.id === id)
                       .map((comment, index) => (
                         <div key={index} className="flex gap-3 py-2">

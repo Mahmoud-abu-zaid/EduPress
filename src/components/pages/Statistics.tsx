@@ -33,7 +33,7 @@ export default function Statistics() {
     <FadeInOnScroll>
       <div ref={ref} className="flex justify-center items-center gap-8 pt-9 pb-15 flex-wrap">
         {["Active Students", "Total Courses", "Instructor", "Satisfaction rate"].map((label, i) => (
-          <div key={i} className="flex flex-col justify-center items-center gap-2 bg-fourth-color-gray-bg rounded-xl shadow-md w-[250px] h-[150px] hover:scale-105 transition-transform duration-100 ease-in-out">
+          <div key={i} className="flex flex-col justify-center items-center gap-2 bg-fourth-color-gray-bg rounded-xl  w-[250px] h-[150px] hover:scale-105 transition-transform duration-100 ease-in-out shadow-fourth-color-gray-bg cursor-pointer transform hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]">
             <h3 className="text-2xl font-semibold text-main-color">
               {counts[i]}
               {(label === "Satisfaction rate" && " %") || (label === "Active Students" && " K+")}
