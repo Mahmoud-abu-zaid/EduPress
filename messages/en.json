@@ -4,11 +4,24 @@
     "arabic": "Arabic",
     "english": "English"
   },
+  "header": {
+    "Premium Theme": "Premium Theme",
+    "LearnPress Add-On": "LearnPress Add-On",
+    "Blog": "Blog",
+    "Courses": "Courses",
+    "Home": "Home",
+    "Pages": "Pages",
+    "FAQs": "FAQs",
+    "Contact": "Contact",
+    "About Us": "About Us",
+    "Login / Register": "Login / Register"
+  },
   "heroHome": {
-    "title1": "Build Skills with",
-    "title2": "Online Course",
-    "discription1": "We denounce with righteous indignation and dislike men who are",
-    "discription2": "so beguiled and demoralized that cannot trouble."
+    "Build Skills with": "Build Skills with",
+    "Online Course": "Online Course",
+    "Join thousands of learners from around the world": "Join thousands of learners from around the world",
+    "already learning on EduPress": "already learning on EduPress",
+    "Posts comment": "Posts comment"
   },
   "about": {
     "title1": "LearnPress Page",

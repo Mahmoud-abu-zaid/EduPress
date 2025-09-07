@@ -10,5 +10,24 @@
     "title2": "هذا هو محتوى صفحة LearnPress.",
     "discription1": "قريبًا",
     "discription2": "هذه الصفحة قيد الإنشاء. تفضل بزيارتها قريبًا!"
+  },
+  "header": {
+    "Premium Theme": "موضوع بريميوم",
+    "LearnPress Add-On": " إضافة LearnPress",
+    "Blog": "المدونة",
+    "Courses": "الدورات",
+    "Home": "الصفحة الرئيسية",
+    "Pages": "الصفحات",
+    "FAQs": "الاسئلة الشائعة",
+    "Contact": "اتصل بنا",
+    "About Us": "من نحن",
+    "Login / Register": "تسجيل الدخول / التسجيل"
+  },
+  "heroHome": {
+    "Build Skills with": "اكتسب مهارات من خلال",
+    "Online Course": "الدورات عبر الإنترنت",
+    "Join thousands of learners from around the world": "انضم إلى آلاف المتعلمين من جميع أنحاء العالم EduPress.",
+    "already learning on EduPress": " يتعلمون بالفعل على EduPress.",
+    "Posts comment": "إرسال تعليق"
   }
 }

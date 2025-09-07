@@ -4,6 +4,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { CiMenuFries } from "react-icons/ci";
 import { usePathname } from "next/navigation";
 import { IoIosArrowDown } from "react-icons/io";
@@ -11,6 +12,7 @@ import ThemeSwitcher from "../utils/ThemeProvider";
 
 export default function Header() {
   const pathname = usePathname();
+  const t = useTranslations("header");
   const [showMenu, setShowMenu] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
 
@@ -23,7 +25,7 @@ export default function Header() {
     { path: "/", label: "Home" },
     { path: "/AllCourses", label: "Courses" },
     { path: "/Blog", label: "Blog" },
-    { path: "", label: "Page", icon: <IoIosArrowDown />, nestedNav },
+    { path: "#", label: "Pages", icon: <IoIosArrowDown />, nestedNav },
     { path: "/LearnPress", label: "LearnPress Add-On" },
     { path: "/Premium", label: "Premium Theme" },
   ];
@@ -40,10 +42,13 @@ export default function Header() {
           {nav.map((li) => (
             <li key={li.label} className="relative group">
               <Link
-                href={li.path || "#"}
-                className={clsx("text-sm font-medium text-color-black hover:text-main-color transition-all flex items-center gap-1", pathname === li.path && "text-main-color font-semibold")}
+                href={li.path}
+                className={clsx(
+                  "text-sm font-medium text-color-black hover:text-main-color transition-all flex items-center gap-1",
+                  pathname === (li.path === "/" ? li.path : `/ar${li.path}`) && "text-main-color font-semibold"
+                )}
               >
-                {li.label}
+                {t(li.label)}
                 {li?.icon}
               </Link>
 
@@ -52,7 +57,7 @@ export default function Header() {
                   {li.nestedNav.map((nested) => (
                     <li key={nested.path}>
                       <Link href={nested.path} className="block px-4 py-2 hover:bg-gray-100 hover:text-black">
-                        {nested.label}
+                        {t(nested.label)}
                       </Link>
                     </li>
                   ))}
@@ -65,7 +70,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <div className="hidden lg:flex items-center gap-2 text-sm">
             <Link href="/Authentication" className="text-sm font-medium text-color-black hover:text-main-color transition-all flex items-center gap-1">
-              Login / Register
+              {t("Login / Register")}
             </Link>
           </div>
           <ThemeSwitcher />
@@ -82,7 +87,7 @@ export default function Header() {
               <li key={li.label}>
                 <div className="flex justify-between items-center">
                   <Link href={li.path} className={clsx("text-color-black text-base", pathname === li.path && "text-main-color font-semibold")}>
-                    {li.label}
+                    {t(li.label)}
                   </Link>
                   {Array.isArray(li.nestedNav) && (
                     <button onClick={() => setOpenDropdown((prev) => !prev)} className="text-xl cursor-pointer">
@@ -96,7 +101,7 @@ export default function Header() {
                     {li.nestedNav.map((nested) => (
                       <li key={nested.path}>
                         <Link href={nested.path} className="text-color-black text-sm block py-1">
-                          {nested.label}
+                          {t(nested.label)}
                         </Link>
                       </li>
                     ))}
@@ -107,9 +112,7 @@ export default function Header() {
             <hr className="my-2 text-color-black" />
             <div className="flex gap-2 text-sm font-medium">
               <Link href="/Authentication" className="hover:text-main-color text-color-black">
-                Login
-                <span> / </span>
-                Register
+                {t("Login / Register")}
               </Link>
             </div>
           </ul>

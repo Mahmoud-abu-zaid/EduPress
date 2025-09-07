@@ -3,7 +3,9 @@ import Image from "next/image";
 import BtnLink from "../ui/BtnLink";
 import { exo2 } from "@/fonts/allFonts";
 import FadeInOnScroll from "../animation/FadeInOnScroll";
+import { useTranslations } from "next-intl";
 export default function HeroHome() {
+  const t = useTranslations("heroHome");
   return (
     <>
       <div className="bg-[url('/img/Rectangle88.png')] bg-size-[100%_100%] bg-center h-[80vh] bg-no-repeat flex items-center justify-center text-color-white">
@@ -11,16 +13,18 @@ export default function HeroHome() {
           <div className="p-3">
             <FadeInOnScroll>
               <h2 className={`sm:text-4xl text-3xl font-semibold mb-5 text-black ${exo2.className}`}>
-                Build Skills with
+                {t("Build Skills with")}
+
                 <br />
-                Online Course
+                {t("Online Course")}
               </h2>
               <p className="text-gray-700">
-                We denounce with righteous indignation and dislike men who are <br />
-                so beguiled and demoralized that cannot trouble.
+                {t("Join thousands of learners from around the world")}
+                <br />
+                {t("already learning on EduPress")}
               </p>
               <div className="mt-6">
-                <BtnLink path="/" title="Posts comment" />
+                <BtnLink path="/" title= {t("Posts comment")} />
               </div>
             </FadeInOnScroll>
           </div>
