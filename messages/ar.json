@@ -1,0 +1,14 @@
+{
+  "banner": {
+    "message": "مرحبًا بك في Edupress، اختر اللغة:",
+    "arabic": "العربية",
+    "english": "الإنجليزية"
+  },
+
+  "about": {
+    "title1": "صفحة LearnPress",
+    "title2": "هذا هو محتوى صفحة LearnPress.",
+    "discription1": "قريبًا",
+    "discription2": "هذه الصفحة قيد الإنشاء. تفضل بزيارتها قريبًا!"
+  }
+}

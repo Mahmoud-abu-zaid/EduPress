@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function NotFound() {
   return (
     <>
-      <div className="bg-gray-100">
+      <div className="bg-fourth-color-gray-bg">
         <div>
           <p className="px-12 py-5 text-3xl font-bold">Error</p>
         </div>

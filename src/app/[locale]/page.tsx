@@ -5,7 +5,7 @@ import Categories from "@/components/pages/Categories";
 import Statistics from "@/components/pages/Statistics";
 import LatestArticles from "@/components/pages/LatestArticles";
 import FeaturedCoursesAll from "@/components/pages/FeaturedCoursesAll";
-
+import { setRequestLocale } from "next-intl/server";
 
 export const metadata = {
   title: "EduPress | Learn Smarter, Grow Faster",
@@ -36,7 +36,10 @@ export const metadata = {
   },
 };
 
-export default function Home() {
+export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+
+  setRequestLocale(locale);
   return (
     <>
       <HeroHome />

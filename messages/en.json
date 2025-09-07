@@ -1,0 +1,19 @@
+{
+  "banner": {
+    "message": "Welcome to Edupress, change language:",
+    "arabic": "Arabic",
+    "english": "English"
+  },
+  "heroHome": {
+    "title1": "Build Skills with",
+    "title2": "Online Course",
+    "discription1": "We denounce with righteous indignation and dislike men who are",
+    "discription2": "so beguiled and demoralized that cannot trouble."
+  },
+  "about": {
+    "title1": "LearnPress Page",
+    "title2": "This is the LearnPress page content.",
+    "discription1": "Coming Soon",
+    "discription2": "This page is under construction. Check back soon!"
+  }
+}
