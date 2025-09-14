@@ -2,7 +2,8 @@
   "banner": {
     "message": "مرحبًا بك في Edupress، اختر اللغة:",
     "arabic": "العربية",
-    "english": "الإنجليزية"
+    "english": "الإنجليزية",
+    "French": "الفرنسية"
   },
 
   "about": {

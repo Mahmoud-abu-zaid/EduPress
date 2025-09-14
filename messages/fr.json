@@ -1,0 +1,66 @@
+{
+  "banner": {
+    "message": "Bienvenue sur Edupress, choisissez une langue :",
+    "arabic": "Arabe",
+    "english": "Anglais",
+    "French": "Français"
+  },
+
+  "about": {
+    "title1": "Page LearnPress",
+    "title2": "Ceci est le contenu de la page LearnPress.",
+    "discription1": "Bientôt",
+    "discription2": "Cette page est en construction. Revenez bientôt !"
+  },
+  "header": {
+    "Premium Theme": "Thème Premium",
+    "LearnPress Add-On": "Extension LearnPress",
+    "Blog": "Blog",
+    "Courses": "Cours",
+    "Home": "Accueil",
+    "Pages": "Pages",
+    "FAQs": "FAQ",
+    "Contact": "Contact",
+    "About Us": "À propos",
+    "Login / Register": "Connexion / Inscription"
+  },
+  "heroHome": {
+    "Build Skills with": "Développez vos compétences avec",
+    "Online Course": "Cours en ligne",
+    "Join thousands of learners from around the world": "Rejoignez des milliers d'apprenants du monde entier",
+    "already learning on EduPress": "apprennent déjà sur EduPress.",
+    "Posts comment": "Publier un commentaire"
+  },
+  "Categories": {
+    "Top Categories": "Catégories populaires",
+    "Explore our Popular Categories": "Découvrez nos catégories populaires",
+    "All categories": "Toutes les catégories",
+    "Science": "Science",
+    "Network": "Réseaux",
+    "Finance": "Finance",
+    "Content writing": "Rédaction de contenu",
+    "Marketing": "Marketing",
+    "Photography": "Photographie",
+    "Art & Design": "Art & Design",
+    "Development": "Développement",
+    "Communiication": "Communication",
+    "Videography": "Vidéographie",
+    "38 Courses": "38 cours"
+  },
+  "FeaturedCoursesAll": {
+    "Featured courses": "Cours en vedette",
+    "Explore our Popular Courses": "Découvrez nos cours populaires",
+    "All Courses": "Tous les cours",
+    "Free": "Gratuit",
+    "Enroll Now": "Inscrivez-vous maintenant",
+    "Students": "Étudiants",
+    "Lessons": "Leçons",
+    "Rating": "Note"
+  },
+  "Statistics": {
+    "Active Students": "Étudiants actifs",
+    "Total Courses": "Nombre total de cours",
+    "Instructor": "Instructeur",
+    "Satisfaction rate": "Taux de satisfaction"
+  }
+}

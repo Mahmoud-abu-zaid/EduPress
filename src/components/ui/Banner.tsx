@@ -9,7 +9,6 @@ export default function Banner({ locale }: { locale: string }) {
   const router = useRouter();
   const pathname = usePathname();
 
-  // ✅ تحديث الاتجاه واللغة في <html>
   useEffect(() => {
     if (locale === "ar") {
       document.documentElement.setAttribute("dir", "rtl");
@@ -20,19 +19,15 @@ export default function Banner({ locale }: { locale: string }) {
     }
   }, [locale]);
 
-  // ✅ دالة تغيير اللغة
   function changeLanguage(language: string) {
     const segments = pathname.split("/").filter(Boolean);
 
     if (segments.length === 0) {
-      // الصفحة الرئيسية "/"
       router.push(`/${language}`);
     } else if (segments[0].length === 2) {
-      // لو أول segment locale (مثال: /ar/about)
       segments[0] = language;
       router.push("/" + segments.join("/"));
     } else {
-      // لو مفيش locale في الرابط (مثال: /about)
       router.push(`/${language}/` + segments.join("/"));
     }
   }
@@ -46,6 +41,9 @@ export default function Banner({ locale }: { locale: string }) {
         </option>
         <option className="bg-color-white" value="ar">
           {t("arabic")}
+        </option>
+        <option className="bg-color-white" value="fr">
+          {t("French")}
         </option>
       </select>
     </div>
