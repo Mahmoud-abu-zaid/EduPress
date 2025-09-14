@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import FadeInOnScroll from "../animation/FadeInOnScroll";
@@ -7,7 +8,7 @@ import FadeInOnScroll from "../animation/FadeInOnScroll";
 export default function Statistics() {
   const [counts, setCounts] = useState([0, 0, 0, 0]);
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
-
+  const t = useTranslations("Statistics");
   const targets = [25, 899, 158, 100];
   const duration = 700;
   const frameRate = 30;
@@ -33,12 +34,15 @@ export default function Statistics() {
     <FadeInOnScroll>
       <div ref={ref} className="flex justify-center items-center gap-8 pt-9 pb-15 flex-wrap">
         {["Active Students", "Total Courses", "Instructor", "Satisfaction rate"].map((label, i) => (
-          <div key={i} className="flex flex-col justify-center items-center gap-2 bg-fourth-color-gray-bg rounded-xl  w-[250px] h-[150px] hover:scale-105 transition-transform duration-100 ease-in-out shadow-fourth-color-gray-bg cursor-pointer transform hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]">
+          <div
+            key={i}
+            className="flex flex-col justify-center items-center gap-2 bg-fourth-color-gray-bg rounded-xl  w-[250px] h-[150px] hover:scale-105 transition-transform duration-100 ease-in-out shadow-fourth-color-gray-bg cursor-pointer transform hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]"
+          >
             <h3 className="text-2xl font-semibold text-main-color">
               {counts[i]}
               {(label === "Satisfaction rate" && " %") || (label === "Active Students" && " K+")}
             </h3>
-            <p className="font-semibold text-color-black">{label}</p>
+            <p className="font-semibold text-color-black">{t(label)}</p>
           </div>
         ))}
       </div>

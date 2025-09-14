@@ -26,8 +26,40 @@
   "heroHome": {
     "Build Skills with": "اكتسب مهارات من خلال",
     "Online Course": "الدورات عبر الإنترنت",
-    "Join thousands of learners from around the world": "انضم إلى آلاف المتعلمين من جميع أنحاء العالم EduPress.",
+    "Join thousands of learners from around the world": "انضم إلى آلاف المتعلمين من جميع أنحاء العالم",
     "already learning on EduPress": " يتعلمون بالفعل على EduPress.",
     "Posts comment": "إرسال تعليق"
+  },
+  "Categories": {
+    "Top Categories": "الفئات الأكثر شعبية",
+    "Explore our Popular Categories": "استكشف فئاتنا الأكثر شعبية",
+    "All categories": "جميع الفئات",
+    "Science": "العلوم",
+    "Network": "الشبكات",
+    "Finance": "المالية",
+    "Content writing": "كتابة المحتوى",
+    "Marketing": "التسويق",
+    "Photography": "التصوير الفوتوغرافي",
+    "Art & Design": "الفن والتصميم",
+    "Development": "التطوير",
+    "Communiication": "الاتصالات",
+    "Videography": "التصوير الفيديو",
+    "38 Courses": "38 دورة"
+  },
+  "FeaturedCoursesAll": {
+    "Featured courses": "الدورات المميزة",
+    "Explore our Popular Courses": "استكشف دوراتنا المميزة",
+    "All Courses": "جميع الدورات",
+    "Free": "مجاني",
+    "Enroll Now": "سجل الآن",
+    "Students": "الطلاب",
+    "Lessons": "الدروس",
+    "Rating": "التقييم"
+  },
+  "Statistics": {
+    "Active Students": "الطلاب النشطون",
+    "Total Courses": "إجمالي الدورات",
+    "Instructor": "المدرب",
+    "Satisfaction rate": "معدل الرضا"
   }
 }

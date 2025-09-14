@@ -1,8 +1,15 @@
 {
   "banner": {
-    "message": "Welcome to Edupress, change language:",
+    "message": "Welcome to Edupress, choose a language:",
     "arabic": "Arabic",
     "english": "English"
+  },
+
+  "about": {
+    "title1": "LearnPress Page",
+    "title2": "This is the content of the LearnPress page.",
+    "discription1": "Coming soon",
+    "discription2": "This page is under construction. Please visit again soon!"
   },
   "header": {
     "Premium Theme": "Premium Theme",
@@ -18,15 +25,41 @@
   },
   "heroHome": {
     "Build Skills with": "Build Skills with",
-    "Online Course": "Online Course",
+    "Online Course": "Online Courses",
     "Join thousands of learners from around the world": "Join thousands of learners from around the world",
-    "already learning on EduPress": "already learning on EduPress",
-    "Posts comment": "Posts comment"
+    "already learning on EduPress": "already learning on EduPress.",
+    "Posts comment": "Post Comment"
   },
-  "about": {
-    "title1": "LearnPress Page",
-    "title2": "This is the LearnPress page content.",
-    "discription1": "Coming Soon",
-    "discription2": "This page is under construction. Check back soon!"
+  "Categories": {
+    "Top Categories": "Top Categories",
+    "Explore our Popular Categories": "Explore our Popular Categories",
+    "All categories": "All Categories",
+    "Science": "Science",
+    "Network": "Network",
+    "Finance": "Finance",
+    "Content writing": "Content Writing",
+    "Marketing": "Marketing",
+    "Photography": "Photography",
+    "Art & Design": "Art & Design",
+    "Development": "Development",
+    "Communiication": "Communication",
+    "Videography": "Videography",
+    "38 Courses": "38 Courses"
+  },
+  "FeaturedCoursesAll": {
+    "Featured courses": "Featured Courses",
+    "Explore our Popular Courses": "Explore our Popular Courses",
+    "All Courses": "All Courses",
+    "Free": "Free",
+    "Enroll Now": "Enroll Now",
+    "Students": "Students",
+    "Lessons": "Lessons",
+    "Rating": "Rating"
+  },
+  "Statistics": {
+    "Active Students": "Active Students",
+    "Total Courses": "Total Courses",
+    "Instructor": "Instructor",
+    "Satisfaction rate": "Satisfaction Rate"
   }
 }

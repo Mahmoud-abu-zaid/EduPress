@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { IoIosTime } from "react-icons/io";
+import { getTranslations } from "next-intl/server";
 import BtnLinkAll from "@/components/ui/BtnLinkAll";
 import { RiGraduationCapFill } from "react-icons/ri";
 import FadeInOnScroll from "../animation/FadeInOnScroll";
@@ -17,13 +18,13 @@ export default async function FeaturedCoursesAll() {
   }
 
   const data: DataCorurses[] = await response.json();
-
+  const t = await getTranslations("FeaturedCoursesAll");
   return (
     <div>
       <FadeInOnScroll>
         <div className="flex items-center justify-between flex-wrap py-9">
-          <TitleDescription title="Featured courses" description="Explore our Popular Courses" />
-          <BtnLinkAll path="AllCourses" title="All Courses" />
+          <TitleDescription title={t("Featured courses")} description={t("Explore our Popular Courses")} />
+          <BtnLinkAll path="AllCourses" title={t("All Courses")} />
         </div>
         <div className="max-w-screen-xl mx-auto pb-5  md:pb-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 ">
