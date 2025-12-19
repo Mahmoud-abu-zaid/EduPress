@@ -1,12 +1,12 @@
 "use client";
 
 import clsx from "clsx";
-import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { CiMenuFries } from "react-icons/ci";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
 import { IoIosArrowDown } from "react-icons/io";
 import ThemeSwitcher from "../utils/ThemeProvider";
 
@@ -29,7 +29,7 @@ export default function Header() {
     { path: "/LearnPress", label: "LearnPress Add-On" },
     { path: "/Premium", label: "Premium Theme" },
   ];
-
+  const removeLocale = (path: string) => path.replace(/^\/(en|ar|fr)(\/|$)/, "/");
   return (
     <header className="bg-color-white shadow-md">
       <nav className="bg-color-white max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -45,7 +45,7 @@ export default function Header() {
                 href={li.path}
                 className={clsx(
                   "text-sm font-medium text-color-black hover:text-main-color transition-all flex items-center gap-1",
-                  pathname === (li.path === "/" ? li.path : `/ar${li.path}`) && "text-main-color font-semibold"
+                  removeLocale(pathname) === li.path && "text-main-color font-semibold"
                 )}
               >
                 {t(li.label)}
